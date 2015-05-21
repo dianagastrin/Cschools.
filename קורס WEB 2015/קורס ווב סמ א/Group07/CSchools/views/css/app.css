@@ -1,0 +1,66 @@
+/* main stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.coursesTable{
+  list-style: none;
+}
+
+.coursesTable li{
+  background: white;
+  border: 1px solid #e7e7e7;
+  padding:10px;
+  font-size: large;
+  width:90%;
+}
+
+.coursesTable li:hover{
+  background: yellow;
+  cursor: pointer;
+}
+
+#resolution{
+  font-size: 8pt;
+  bottom:0;
+  right:0;
+  left:40%;
+  position: relative;
+}
+
+#footer > span{
+  width:20%;
+  font-size: 8pt;
+}
+
+.like{
+    left:35%;
+}
+
+

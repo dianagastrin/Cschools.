@@ -1,0 +1,20 @@
+<div class="jumbotron" id="homeTitle">
+    <h1>Enhance your CS knowledge!</h1>
+    <p>*Start by selecting for a course name</p>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <input type="text" class="form-control input-lg" ng-model="search_key" placeholder="Enter Course Name" ng-change="shouldHideSearchHelp()">
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <ul class="coursesTable" ng-show="shouldShowSearchHelp">
+                <li ng-repeat="course in courses | filter : {name : search_key}" ng-click="goToCoursePage(course.id,course.name)" >{{course.name}}</li>
+            </ul>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

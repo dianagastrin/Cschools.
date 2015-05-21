@@ -1,0 +1,10 @@
+#qstions{
+    width:100%;
+    height:200px;
+    overflow:scroll;
+}
+
+.boldQuizAnswer{
+    font-size: large;
+    font-weight: 200;
+}

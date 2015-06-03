@@ -22,22 +22,9 @@ angular.module('cschools', [
 .controller('mainCtrl',function($scope, $rootScope){
     console.debug("main controller init");
     $scope.selectedTab = "home";
-$rootScope.isLoggedIn = false;
 
-    function login(){
-        var userInfoLi = document.getElementById("userInfo");
-        if(!$rootScope.isLoggedIn){
-            userInfoLi.innerHTML = "<a href='#/login'>Log In</a>";
-        }
-        else{
-            userInfoLi.innerHTML = "<a> Welcome, "+ $rootScope.user.name +"</a>";
-        }
-    }
 
-    $rootScope.login = login;
 
-    login();
- 
 });
 //Facebook Code 
 (function(d, s, id) {

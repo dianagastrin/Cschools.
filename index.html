@@ -52,7 +52,9 @@
                         <li ng-class="{'active':selectedTab === 'uploadFile'}" ng-click="selectedTab = 'uploadFile'"><a href="#/uploadFile" ng-click="activate($event)">Upload File</a></li>       
                     </ul>       
                     <ul class="nav navbar-nav navbar-right">
-                                                <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="#/registration" ng-click="activate($event)">Registration</a></li>       
+                        <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="#/login" ng-click="activate($event)">Login</a></li>       
+
+                        <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="#/registration" ng-click="activate($event)">Registration</a></li>       
                         <li id="userInfo"></li>
                         <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'"><a href="#/Profile" ng-click="activate($event)">Profile</a></li> 
                     </ul>
@@ -74,7 +76,7 @@
         <!-- /Dynamic pages end -->
 
         <!--Facebook Like code-->
-<br>
+        <br>
         <div class="fb-like like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>
         <span id="resolution">Recommended Resolution 1024x768</span>        

@@ -1,14 +1,7 @@
 'use strict';
 
-angular.module('cschools.Profile', ['ngRoute'])
-        .config(['$routeProvider', function ($routeProvider) {
-                $routeProvider.when('/Profile', {
-                    templateUrl: './views/Profile.html',
-                    controller: 'ProfileCtrl'
-                });
-            }])
+angular.module('cschools.profile', [])
 
-
-        .controller('ProfileCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
-                console.debug("Profile controller init");
-            }]);
+.controller('profileCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    console.debug("Profile controller init");
+}]);

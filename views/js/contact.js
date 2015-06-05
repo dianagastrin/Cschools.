@@ -1,14 +1,6 @@
 'use strict';
 
-angular.module('cschools.contact',['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider){
-  $routeProvider.when('/contact', {
-    templateUrl: './views/contact.html',
-    controller: 'contactCtrl'
-  });
-}])
-
+angular.module('cschools.contact',[])
 
 .controller('contactCtrl', ['$scope','$routeParams', function($scope, $routeParams){
   console.debug("contact controller init");

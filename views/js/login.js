@@ -1,13 +1,7 @@
 'use strict';
 
-angular.module('cschools.login',['ngRoute'])
-.config(['$routeProvider', function( $routeProvider){
-  
-  $routeProvider.when('/login', {
-    templateUrl: './views/login.html',
-    controller: 'loginCtrl'
-  });
-}])
+angular.module('cschools.login',[])
+
 .controller('loginCtrl', ['$scope','$location', '$rootScope', function($scope, $location, $rootScope){
   console.debug("login controller init");
 

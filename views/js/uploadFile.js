@@ -1,13 +1,6 @@
 'use strict';
 
-angular.module('cschools.uploadFile',['ngRoute'])
-.config(['$routeProvider', function($routeProvider){
-  $routeProvider.when('/uploadFile', {
-    templateUrl: './views/uploadFile.html',
-    controller: 'uploadFileCtrl'
-  });
-}])
-
+angular.module('cschools.uploadFile',[])
 
 .controller('uploadFileCtrl', ['$scope','$routeParams', function($scope, $routeParams){
   console.debug("uploadFile controller init");

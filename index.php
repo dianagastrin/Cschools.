@@ -28,7 +28,7 @@
         <script src="views/js/quiz.js"></script>
         <script src="views/js/registration.js"></script>
         <script src="views/js/uploadFile.js"></script>
-        <script src="views/js/Profile.js"></script>
+        <script src="views/js/profile.js"></script>
     </head>
     <body ng-controller="mainCtrl">
         <!-- header navigation for the website - will stay on top while page content changes -->
@@ -42,21 +42,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <div ><a href="#/home"> <img src="images/logo-newnew.jpg" alt="CSchools" width="130" height="60"> </a></div>
+                    <div ><a href="index.php"> <img src="images/logo-newnew.jpg" alt="CSchools" width="130" height="60"> </a></div>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" id="mainNav">
-                        <li ng-class="{'active':selectedTab === 'home'}" ng-click="selectedTab = 'home'"><a href="#/home" ng-click="activate($event)">Home</a></li>
-                        <li ng-class="{'active':selectedTab === 'about'}" ng-click="selectedTab = 'about'"><a href="#/about" ng-click="activate($event)">About Us</a></li>
-                        <li ng-class="{'active':selectedTab === 'contact'}" ng-click="selectedTab = 'contact'"><a href="#/contact" ng-click="activate($event)">Contact</a></li>
-                        <li ng-class="{'active':selectedTab === 'uploadFile'}" ng-click="selectedTab = 'uploadFile'"><a href="#/uploadFile" ng-click="activate($event)">Upload File</a></li>       
+                        <li ng-class="{'active':selectedTab === 'home'}" ng-click="selectedTab = 'home'"><a href="index.php?action=home" ng-click="activate($event)">Home</a></li>
+                        <li ng-class="{'active':selectedTab === 'about'}" ng-click="selectedTab = 'about'"><a href="index.php?action=about" ng-click="activate($event)">About Us</a></li>
+                        <li ng-class="{'active':selectedTab === 'contact'}" ng-click="selectedTab = 'contact'"><a href="index.php?action=contact" ng-click="activate($event)">Contact</a></li>
+                        <li ng-class="{'active':selectedTab === 'uploadFile'}" ng-click="selectedTab = 'uploadFile'"><a href="index.php?action=uploadFile" ng-click="activate($event)">Upload File</a></li>
                     </ul>       
                     <ul class="nav navbar-nav navbar-right">
-                        <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="#/login" ng-click="activate($event)">Login</a></li>       
+                        <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login" ng-click="activate($event)">Login</a></li>
 
-                        <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="#/registration" ng-click="activate($event)">Registration</a></li>       
+                        <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="index.php?action=registration" ng-click="activate($event)">Registration</a></li>
                         <li id="userInfo"></li>
-                        <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'"><a href="#/Profile" ng-click="activate($event)">Profile</a></li> 
+                        <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'"><a href="index.php?action=profile" ng-click="activate($event)">Profile</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -68,7 +68,40 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    <div ng-view></div>
+                    <?php
+                        switch ($_GET["action"]) {
+                            case "home":
+                                include "./views/home.php";
+                                break;
+                            case "about":
+                                include "./views/about.php";
+                                break;
+                            case "contact":
+                                include "./views/contact.php";
+                                break;
+                            case "uploadFile":
+                                include "./views/uploadFile.php";
+                                break;
+                            case "home":
+                                include "./views/home.php";
+                                break;
+                            case "login":
+                                include "./views/login.php";
+                                break;
+                            case "registration":
+                                include "./views/registration.php";
+                                break;
+                            case "profile":
+                                include "./views/profile.php";
+                                break;
+                            case "course":
+                                include "./views/course.php";
+                                break;
+                            default:
+                                include "./views/home.php";
+                        }
+
+                    ?>
                 </div>
                 <div class="col-md-1"></div>
             </div>

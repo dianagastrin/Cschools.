@@ -1,14 +1,6 @@
 'use strict';
 
-
-
-angular.module('cschools.course',['ngRoute'])
-.config(['$routeProvider', function($routeProvider){
-  $routeProvider.when('/course/:id/:name', {
-    templateUrl: './views/course.html',
-    controller: 'courseCtrl'
-  });
-}])
+angular.module('cschools.course',[])
 
 
 .controller('courseCtrl', ['$scope','$routeParams', function($scope, $routeParams){

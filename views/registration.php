@@ -2,7 +2,7 @@
 <h1>Join Our Family</h1><br>
 
 <div id="status"></div><div class="container" ng-controller="registrationCtrl">
-    <form action="registration.php" method="post" >
+    <form action="registrationServer.php" method="post" >
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">

@@ -1,17 +1,10 @@
 'use strict';
 
-angular.module('cschools.registration', ['ngRoute'])
-        .config(['$routeProvider', function ($routeProvider) {
-                $routeProvider.when('/registration', {
-                    templateUrl: './views/registration.html',
-                    controller: 'registrationCtrl'
-                });
-            }])
+angular.module('cschools.registration', [])
 
-
-        .controller('registrationCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
-                console.debug("registration controller init");
-            }]);
+.controller('registrationCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    console.debug("registration controller init");
+}]);
 
 
 

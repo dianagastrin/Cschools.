@@ -11,18 +11,13 @@ angular.module('cschools', [
   'cschools.quiz',
   'cschools.uploadFile',
   'cschools.registration',
-  'cschools.Profile'
+  'cschools.profile'
   
 ])
-//defining routing default behavior
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/home'});
-}])
 
 .controller('mainCtrl',function($scope, $rootScope){
     console.debug("main controller init");
     $scope.selectedTab = "home";
-
 
 
 });

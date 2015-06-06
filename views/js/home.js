@@ -1,12 +1,6 @@
 'use strict';
 
-angular.module('cschools.home',['ngRoute'])
-.config(['$routeProvider', function($routeProvider){
-  $routeProvider.when('/home', {
-    templateUrl: './views/home.html',
-    controller: 'homeCtrl'
-  });
-}])
+angular.module('cschools.home',[])
 
 
 .controller('homeCtrl', ['$scope','$location', function($scope, $location) {
@@ -38,6 +32,6 @@ angular.module('cschools.home',['ngRoute'])
 
   $scope.goToCoursePage = function(id,name){
     console.log("going to course page for: "+ name + "("+id+")" );
-    $location.url('/course/'+id+'/'+name+'/');
+    $location.url('/index.php?action=course&id='+id+'&name='+name);
   }
 }]);

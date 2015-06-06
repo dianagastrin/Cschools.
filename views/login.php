@@ -1,7 +1,7 @@
 
 <div class="jumbotron" id="titleLogin" ng-controller="loginCtrl">
     <h3><b>Happy To See You Again</b></h3><br>
-   <form action="login.php" method="post">
+   <form action="loginServer.php" method="post">
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4"></div>

@@ -13,3 +13,4 @@ angular.module('cschools.login',[])
     $location.url('/main');}
 
 }]);
+

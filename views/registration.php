@@ -2,7 +2,7 @@
 <h1>Join Our Family</h1><br>
 
 <div id="status"></div><div class="container" ng-controller="registrationCtrl">
-    <form  method="post" action="views/registrationServer.php" enctype="multipart/form-data" >
+    <form  method="post" action="index.php?action=profile" enctype="multipart/form-data" >
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
@@ -40,7 +40,7 @@
             <label for="female">Female</label>
             <input type="radio" name="gender" value="other" id="other">  
             <label for="other">Other</label> <br>
-<           <input type="file" name="img" accept="image/*" id="fileToUpload">
+           <input type="file" name="img" accept="image/*" id="fileToUpload">
             <label for="fileToUpload"> *optional Upload Profile Picture </label>
             <br> <br>
             <input type="checkbox" name="sendEmail" value="1" id="checkEmail" checked>

@@ -1,55 +1,25 @@
 
-<h1>Alan Turing</h1>
 <div class="container" ng-controller="profileCtrl">
+    <?php
+     $fname= $_POST['fname']; 
+    $lname= " ".$_POST['lname']; 
+    $age = $_POST['age'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $confirmPass = $_POST['confirmPass'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $confirmPass = $_POST['confirmPass'];
+    $gender = $_POST['gender'];
+    (isset($_POST['sendEmail'])) ? $sendEmail = $_POST['sendEmail'] : $sendEmail = 0;
+    ($_FILES["img"]["size"] == 0) ? "" : "The file " . $_FILES["img"]["name"] . " with the size of " . $_FILES["img"]["size"] . "B was uploaded";
+    move_uploaded_file($_FILES["img"]["tmp_name"], "uploads/" . $_FILES["img"]["name"]);
+    ?>
+   <h1> <h1><?php echo $fname.$lname ?></h1> </h1> 
     <div class="jumbotron">
-        <div class="row"><div class="col-md-3"> </div> <div class="col-md-3">
-                <img src="images/Alan_Turing.png" alt="Alan Turing" id="Alan_Turing"></div></div>    
-        <br><br>
-        <form action="uploadFile.php" method="post" target="_self">
-            <div class="row">
-                <div class="col-md-1"></div> 
-                <div class="col-md-2">First Name:</div>
-                <div class="col-md-3">
-                    <input type="text" class="form-control input-lg" id="FirstNameProfile" placeholder="Alan" disabled></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">Last Name:</div>
-                <div class="col-md-3">
-                    <input type="text" class="form-control input-lg" id="LastNameProfile" placeholder="Turing" disabled> </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">Age:</div>
-                <div class="col-md-3">
-                    <input class="form-control input-lg" type="number" id="AgeProfile" placeholder="22"  disabled></div>
-            </div>
-            <br>    
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">Email: </div>
-                <div class="col-md-3">
-                    <input type="email" class="form-control input-lg" id="EmailProfile" placeholder="Alan10101@gmail.com" disabled></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">Your User Name: </div>
-                <div class="col-md-3">
-                    <input type="text" class="form-control input-lg" id="usernameProfile" placeholder="Alan10101"  disabled></div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">Uploaded Summaries: </div>
-                <div class="col-md-3">
-                    <input type="text" class="form-control input-lg" id="FilesProfileNumber" placeholder="101"  disabled></div>
-            </div>
-            <br>
-        </form>
-    </div>
+        </div>
+   
+   
+   
 </div>
-
-

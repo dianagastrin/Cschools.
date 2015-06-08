@@ -20,9 +20,23 @@
     } else
     "";}
     else "";
+    
     ?>
-    <h1> <h1><?php echo $fname . $lname ?></h1> </h1> 
+    <div class="capitalize"> <h1><?php echo $fname . $lname ?></h1>   </div>
+    
     <div class="jumbotron">
+       <form class="form-horizontal">
+  <div class="form-group">
+      <img src="uploads/<?php echo $_FILES["img"]["name"] ?>" />
+    <label class="col-sm-2 control-label">User Name</label>
+    <div class="col-sm-10">
+      <div class="form-control-static "><?php echo $username ?></div>
+    </div>
+    <img src="../images/hila maman.png" alt=""/>
+  </div>
+ 
+  </div>
+</form>
     </div>
 
 

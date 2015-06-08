@@ -1,6 +1,6 @@
   <?php
-        var_dump($_REQUEST);
-        foreach ($_REQUEST as $key => $val) {
+        var_dump($_POST);
+        foreach ($_POST as $key => $val) {
             $$key = $val;
             if (gettype($val) != "array") {
                 echo "The value of <strong>$key</strong> is <strong> $val </strong><br>";
@@ -13,6 +13,6 @@
         }      
         var_dump($_FILES);
 
-        move_uploaded_file($_FILES["img"]["tmp_name"], "../" . $_FILES["img"]["name"]);
+        move_uploaded_file($_FILES["img"]["tmp_name"], "uploads/" . $_FILES["img"]["name"]);
        echo "The file ". $_FILES["img"]["name"]. " with the size of ".$_FILES["img"]["size"]."B was uploaded";
         ?>

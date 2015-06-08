@@ -34,11 +34,11 @@
                     Confirm Password: <input type="password" class="form-control input-lg" name="confirmPass" placeholder="Confirm Password"  required> <br>
                 </div> 
             </div>
-            <input type="radio" name="sex" value="male" id="male" checked>
+            <input type="radio" name="gender" value="male" id="male" checked>
             <label for="male">Male</label>
-            <input type="radio" name="sex" value="female" id="female">
+            <input type="radio" name="gender" value="female" id="female">
             <label for="female">Female</label>
-            <input type="radio" name="sex" value="other" id="other">  
+            <input type="radio" name="gender" value="other" id="other">  
             <label for="other">Other</label> <br>
 <           <input type="file" name="img" accept="image/*" id="fileToUpload">
             <label for="fileToUpload"> *optional Upload Profile Picture </label>

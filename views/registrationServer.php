@@ -1,18 +1,17 @@
   <?php
-        var_dump($_POST);
-        foreach ($_POST as $key => $val) {
-            $$key = $val;
-            if (gettype($val) != "array") {
-                echo "The value of <strong>$key</strong> is <strong> $val </strong><br>";
-            } else {
-                echo "For the <strong>$key</strong> array:<br>";
-                foreach ($val as $valKey => $valVals) {
-                    echo "&nbsp;&nbsp;&nbsp;The value of <strong>$valKey</strong> is <strong> $valVals </strong><br>";
-                }
-            }
-        }      
-        var_dump($_FILES);
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $age=$_POST['age'];
+        $email=$_POST['email'];
+        $username=$_POST['username'];
+        $password=$_POST['password'];
+        $confirmPass=$_POST['confirmPass'];
+        $username=$_POST['username'];
+        $password=$_POST['password'];
+        $confirmPass=$_POST['confirmPass'];
+        $gender=$_POST['gender'];
+        $sendEmail=$_POST['sendEmail'];
 
         move_uploaded_file($_FILES["img"]["tmp_name"], "uploads/" . $_FILES["img"]["name"]);
-       echo "The file ". $_FILES["img"]["name"]. " with the size of ".$_FILES["img"]["size"]."B was uploaded";
+        echo "The file ". $_FILES["img"]["name"]. " with the size of ".$_FILES["img"]["size"]."B was uploaded";
         ?>

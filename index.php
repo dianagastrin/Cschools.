@@ -55,8 +55,9 @@
                         <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login" ng-click="activate($event)">Login</a></li>
 
                         <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="index.php?action=registration" ng-click="activate($event)">Registration</a></li>
-                        <li id="userInfo"></li>
-                        <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'"><a href="index.php?action=profile" ng-click="activate($event)">Profile</a></li>
+                        
+                        <!-- HERE WE NEED TO WRITE A FUNCTION ISLOGGED
+                          <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" ng-disabled="true">Profile</a></li>-->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -100,7 +101,6 @@
                             default:
                                 include "./views/home.php";
                         }
-
                     ?>
                 </div>
                 <div class="col-md-1"></div>

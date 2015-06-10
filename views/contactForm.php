@@ -8,7 +8,7 @@
                 echo ("lease enter a valid name.<br/><br/>");
             }
             else{
-                $name= preg_replace('/[^a-zA-Z0-9\s]/', '', $str);
+                $name= preg_replace('/[^a-zA-Z\s]/', '', $str);
             }
         }
         else{
@@ -21,12 +21,14 @@
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 echo ("$email is <strong>NOT</strong> a valid email address.<br/><br/>");
+                $email ="";
             }
             else{
                 $email = $_POST['email'];
             }
         } 
         else {
+            $email ="";
             echo ("Please enter your email address.<br/>");
         }
 

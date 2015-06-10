@@ -1,7 +1,7 @@
 <h1>Tell Us What's On Your Mind</h1><br>
 
 <div class="container" ng-controller="contactCtrl">
-    <form method="post" action="contactForm.php" >
+    <form method="post" action="contactForm.php" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-3">What is your name? </div>
             <div class="col-md-5"><input type="text" ng-model="name" class="form-control input-lg" name="name" placeholder="John Snow" required></div>

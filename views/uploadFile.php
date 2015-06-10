@@ -1,12 +1,11 @@
-<div ng-controller="uploadFileCtrl">
     <h1>Uploading Files</h1>
     <br>
-
-    <form action="uploadFile.php" method="post" target="_self">
+    <div class="container" ng-controller="uploadFileCtrl">
+    <form method="post" action="uploadFileServer.php" enctype="multipart/form-data">   
         <div class="row">
             <div class="col-md-2">Course Name:</div>
             <div class="col-md-5">
-                <input type="text" class="form-control input-lg" ng-model="search_key" placeholder="Enter Course Name" ng-change="shouldHideSearchHelp()" required>
+                <input type="text" name="name" class="form-control input-lg" ng-model="search_key" name="name" placeholder="Enter Course Name" ng-change="shouldHideSearchHelp()" required>
             </div>
             <div class="col-md-5"></div>
         </div>
@@ -31,18 +30,18 @@
         <br>
                 <div class="row">
         <div class="col-md-2">
-            Author: </div> <div class="col-md-4"><input type="text" class="form-control input-lg" id="author" placeholder="Steve Paul Jobs" autocomplete="on" required>
+            Author: </div> <div class="col-md-4"><input type="text" class="form-control input-lg" name="author" placeholder="Steve Paul Jobs" autocomplete="on" required>
             </div> </div>  
         <div class="row">
-            <div class="col-md-2">Files To Upload:</div><br><br>
+            <div class="col-md-2">File To Upload:</div><br><br>
             <div class="col-md-3">
-                <input type="file" id="file" name="file" multiple="multiple" required/>
+                <input type="file" name="fileToUpload" id="fileToUpload" required>
             </div>
             <div class="col-md-8"></div>
         </div>
         <br>
         <div class="row"> <div class="col-md-2"></div> <div class="col-md-4">
-                <input type="submit" class="btn btn-primary btn-lg" value="Upload" id="upload" />
+                <input type="submit" class="btn btn-primary btn-lg" value="Upload" id="upload" >
                 <input type="reset" class="btn btn-primary btn-success btn-lg" value="Reset"> </div>
         </div>
     </form>

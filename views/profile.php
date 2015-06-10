@@ -1,7 +1,6 @@
-
 <div class="container" ng-controller="profileCtrl">
     <?php
-    (isset($_POST['fname'])) ? $fname = $_POST['fname'] : $fname = "Profile";
+    (isset($_POST['fname'])) ? $fname = filter_var ($_POST['fname'],FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH) : $fname = "Profile";    
     (isset($_POST['lname'])) ? $lname = " " . $_POST['lname'] : $lname = " ";
     (isset($_POST['age'])) ? $age = $_POST['age'] : $age = "";
     (isset($_POST['email'])) ? $email = $_POST['email'] : $email = "";
@@ -94,9 +93,7 @@
                     else
                         echo "</ul>";
                     ?>                         
-
                 </div>
             </div>
     </div>
 </div>
-

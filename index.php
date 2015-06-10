@@ -6,12 +6,13 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
         <!--websiteCss-->
+       <link rel="stylesheet" href="views/css/registration.css">
         <link rel="stylesheet" href="views/css/uploadFile.css">
         <link rel="stylesheet" href="views/css/about.css">
         <link rel="stylesheet" href="views/css/app.css">
         <link rel="stylesheet" href="views/css/quiz.css">
         <link rel="stylesheet" href="views/css/course.css">
-        <link rel="stylesheet" href="views/css/Profile.css">
+        <link rel="stylesheet" href="views/css/profile.css">
         <link rel="stylesheet" href="views/css/login.css">
         <link rel="stylesheet" href="views/css/home.css">
 
@@ -29,6 +30,7 @@
         <script src="views/js/registration.js"></script>
         <script src="views/js/uploadFile.js"></script>
         <script src="views/js/profile.js"></script>
+        
     </head>
     <body ng-controller="mainCtrl">
         <!-- header navigation for the website - will stay on top while page content changes -->
@@ -56,8 +58,7 @@
 
                         <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="index.php?action=registration" ng-click="activate($event)">Registration</a></li>
                         
-                        <!-- HERE WE NEED TO WRITE A FUNCTION ISLOGGED
-                          <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" ng-disabled="true">Profile</a></li>-->
+                          <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" ng-disabled="true"> Profile</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

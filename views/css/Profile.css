@@ -1,10 +1,16 @@
-
-
-#Alan_Turing{
-    left: 50%;
-    height:150px;
-}
-
 .capitalize {
     text-transform: capitalize;
+}
+
+#profileImg{
+    height: 180px;
+    width:180px;
+      left: 50%;
+    height:150px;
+    border: 2px solid black;
+}
+
+ul{
+    list-style-type: none;
+
 }

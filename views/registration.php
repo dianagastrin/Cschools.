@@ -6,34 +6,34 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    First Name: <input type="text" class="form-control input-lg"  name="fname" placeholder="Alan" autocomplete="on" required>
+                  <span class="asterix">*</span>  First Name: <input type="text" class="form-control input-lg"  name="fname" placeholder="Alan" autocomplete="on" required>
                 </div>
                 <div class="col-md-4">
-                    Last Name: <input type="text" class="form-control input-lg"  name="lname" placeholder="Turing" autocomplete="on" required> 
+                    <span class="asterix">*</span>Last Name: <input type="text" class="form-control input-lg"  name="lname" placeholder="Turing" autocomplete="on" required> 
                 </div>
                 <div class="col-md-1">
-                    Age: <input class="form-control input-lg" type="number" name="age" min="6" max="99">
+                    Age: <input class="form-control input-lg" type="number" name="age" min="6" max="99" >
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-md-6">
-                    Email: <input type="email" class="form-control input-lg" name="email" placeholder="Alan10101@example.com" autocomplete="on" required>
+                  <span class="asterix">*</span> Email: <input type="email" class="form-control input-lg" name="email" placeholder="Alan10101@example.com" autocomplete="on" required>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-4">
-                    Choose User Name: <input type="text" class="form-control input-lg" name="username" placeholder="Alan10101"  autocomplete="on" required> <br>
+                   <span class="asterix">*</span> Choose User Name: <input type="text" class="form-control input-lg" name="username" placeholder="Alan10101"  autocomplete="on" required > <br>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    Choose Password: <input type="password" class="form-control input-lg" name="password" placeholder="Password"  required> <br>
-                </div>
-                <div class="col-md-4">
-                    Confirm Password: <input type="password" class="form-control input-lg" name="confirmPass" placeholder="Confirm Password"  required> <br>
+                 <span class="asterix">*</span>   Choose Password: <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password"  required> <br>
+               
+                   <span class="asterix">*</span> Confirm Password: <input type="password" class="form-control input-lg" id="confirmPass" name="confirmPass" placeholder="Confirm Password" required > <br>
                 </div> 
-            </div>
+                </div></div>
             <input type="radio" name="gender" value="male" id="male" checked>
             <label for="male">Male</label>
             <input type="radio" name="gender" value="female" id="female">

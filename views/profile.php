@@ -20,15 +20,14 @@
         $image = "images/anonymusOther.jpg";
     if (isset($_FILES['img'])) {
         if ($_FILES["img"]["size"] != 0) {
-            move_uploaded_file($_FILES["img"]["tmp_name"], "views/upload/" . $_FILES["img"]["name"]);
-            $image = "views/upload/" . $_FILES["img"]["name"];
+            move_uploaded_file($_FILES["img"]["tmp_name"], "views/upload/uploadProfilePics/" . $_FILES["img"]["name"]);
+            $image = "views/upload/uploadProfilePics/" . $_FILES["img"]["name"];
         }
     }
     $alternative = "images/permissionDenied.png";
     ?>
     <div class="capitalize"> <h1><?php echo $fname . $lname ?></h1>
     </div>
-
     <div class="jumbotron">
         <div class="row">
             <div class="col-md-4"></div>

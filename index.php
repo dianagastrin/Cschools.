@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html ng-app="cschools">
     <head>
@@ -48,17 +51,19 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" id="mainNav">
+                                                <?php $_SESSION['isLogged']=true;$_SESSION['fullname']='diana';?>
+                        
+
                         <li ng-class="{'active':selectedTab === 'home'}" ng-click="selectedTab = 'home'"><a href="index.php?action=home" ng-click="activate($event)">Home</a></li>
                         <li ng-class="{'active':selectedTab === 'about'}" ng-click="selectedTab = 'about'"><a href="index.php?action=about" ng-click="activate($event)">About Us</a></li>
                         <li ng-class="{'active':selectedTab === 'contact'}" ng-click="selectedTab = 'contact'"><a href="index.php?action=contact" ng-click="activate($event)">Contact</a></li>
                         <li ng-class="{'active':selectedTab === 'uploadFile'}" ng-click="selectedTab = 'uploadFile'"><a href="index.php?action=uploadFile" ng-click="activate($event)">Upload File</a></li>
                     </ul>       
                     <ul class="nav navbar-nav navbar-right">
-                        <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login" ng-click="activate($event)">Login</a></li>
-
+                            <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login" ng-click="activate($event)">Login</a></li>
                         <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="index.php?action=registration" ng-click="activate($event)">Registration</a></li>
-                        
-                          <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" ng-disabled="true"> Profile</a></li>
+                          <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" > 
+                                 Profile</a></li> 
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -115,4 +120,5 @@
         <br>
         <span id="resolution">Recommended Resolution 1024x768</span>        
     </body>
+    <?php session_destroy(); ?>
 </html>

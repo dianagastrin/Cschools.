@@ -1,7 +1,17 @@
 
         <?php
         
-        $str=$_POST['name'];
+        $con = mysqli_connect("localhost", "root", "", "Group7");
+        #openning the connection
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        else {
+            echo "connect.<br/>";
+        }
+        
+	#adding new entry
+	$str=$_POST['name'];
         if ($str != "") {
             $str = filter_var($str,FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
             if ($str == "") {
@@ -15,7 +25,6 @@
             echo ("Please enter your name.<br/>");
         }
 
-        var_dump($name);
         
         if ($_POST['email'] != "") {
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -31,8 +40,6 @@
             $email ="";
             echo ("Please enter your email address.<br/>");
         }
-
-        var_dump($email);
         
  
         if ($_POST['message'] != "") {
@@ -47,5 +54,16 @@
         else {
             echo ("Please enter a message to send.<br/>");
         }
-        var_dump($mess);
+       
+                
+        $insertSql = "INSERT INTO contact (Name, Email, Message) "
+                    . "VALUES ('$name', '$email', '$mess')";
+	if (!mysqli_query($con, $insertSql)) {
+            die('Error: ' . mysqli_error($con));
+	}
+	echo "1 record added<br><br>";
+
+	
+	mysqli_close($con);
+        
         ?>

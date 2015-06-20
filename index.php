@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html ng-app="cschools">
     <head>
@@ -7,7 +9,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
         <!--websiteCss-->
-       <link rel="stylesheet" href="views/css/registration.css">
+        <link rel="stylesheet" href="views/css/registration.css">
         <link rel="stylesheet" href="views/css/uploadFile.css">
         <link rel="stylesheet" href="views/css/about.css">
         <link rel="stylesheet" href="views/css/app.css">
@@ -31,7 +33,7 @@
         <script src="views/js/registration.js"></script>
         <script src="views/js/uploadFile.js"></script>
         <script src="views/js/profile.js"></script>
-        
+
     </head>
     <body ng-controller="mainCtrl">
         <!-- header navigation for the website - will stay on top while page content changes -->
@@ -54,11 +56,12 @@
                         <li ng-class="{'active':selectedTab === 'contact'}" ng-click="selectedTab = 'contact'"><a href="index.php?action=contact" ng-click="activate($event)">Contact</a></li>
                         <li ng-class="{'active':selectedTab === 'uploadFile'}" ng-click="selectedTab = 'uploadFile'"><a href="index.php?action=uploadFile" ng-click="activate($event)">Upload File</a></li>
                     </ul>       
-                    <ul class="nav navbar-nav navbar-right">
-                            <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login" ng-click="activate($event)">Login</a></li>
+
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login"  ng-click="activate($event)"> Login </a></li>
+                        <li ng-class="{'active':selectedTab === 'Logout'}" ng-click="selectedTab = 'Logout'" >Logout</li>
                         <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="index.php?action=registration" ng-click="activate($event)">Registration</a></li>
-                          <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" > 
-                                 Profile</a></li> 
+                        <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" > Profile </a></li> 
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -70,38 +73,38 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    <?php 
-                        switch ($_GET['action']) {
-                            case "home":
-                                include "./views/home.php";
-                                break;
-                            case "about":
-                                include "./views/about.php";
-                                break;
-                            case "contact":
-                                include "./views/contact.php";
-                                break;
-                            case "uploadFile":
-                                include "./views/uploadFile.php";
-                                break;
-                            case "home":
-                                include "./views/home.php";
-                                break;
-                            case "login":
-                                include "./views/login.php";
-                                break;
-                            case "registration":
-                                include "./views/registration.php";
-                                break;
-                            case "profile":
-                                include "./views/profile.php";
-                                break;
-                            case "course":
-                                include "./views/course.php";
-                                break;
-                            default:
-                                include "./views/home.php";
-                        }
+                    <?php
+                    switch ($_GET['action']) {
+                        case "home":
+                            include "./views/home.php";
+                            break;
+                        case "about":
+                            include "./views/about.php";
+                            break;
+                        case "contact":
+                            include "./views/contact.php";
+                            break;
+                        case "uploadFile":
+                            include "./views/uploadFile.php";
+                            break;
+                        case "home":
+                            include "./views/home.php";
+                            break;
+                        case "login":
+                            include "./views/login.php";
+                            break;
+                        case "registration":
+                            include "./views/registration.php";
+                            break;
+                        case "profile":
+                            include "./views/profile.php";
+                            break;
+                        case "course":
+                            include "./views/course.php";
+                            break;
+                        default:
+                            include "./views/home.php";
+                    }
                     ?>
                 </div>
                 <div class="col-md-1"></div>
@@ -111,8 +114,10 @@
 
         <!--Facebook Like code-->
         <br>
+        <?php var_dump($_SESSION) ?>
+        
         <div class="fb-like like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>
-        <span id="resolution">Recommended Resolution 1024x768</span>        
+        <span id="resolution">Recommended Resolution 1024x768</span>     
     </body>
 </html>

@@ -8,12 +8,11 @@
         else {
             echo "connect.<br/>";
         }
-        
 	#adding new entry
         if(isset($_POST['name'])){
             $_POST['name'] = filter_var($_POST['name'],FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
             if ($_POST['name'] == "") {
-                echo ("lease enter a valid course name.<br/><br/>");
+                echo ("Please enter a valid course name.<br/><br/>");
             }
             else{
                 $cname= preg_replace('/[^a-zA-Z0-9\s]/', '', $_POST['name']);

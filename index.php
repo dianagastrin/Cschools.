@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html ng-app="cschools">
     <head>
@@ -47,13 +45,10 @@ session_start();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <div ><a href="index.php"> <img src="images/logo-newnew.jpg" alt="CSchools" width="130" height="60"> </a></div>
+                    <div ><a href="index.php?action=home"> <img src="images/logo-newnew.jpg" alt="CSchools" width="130" height="60"> </a></div>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav" id="mainNav">
-                                                <?php $_SESSION['isLogged']=true;$_SESSION['fullname']='diana';?>
-                        
-
+                    <ul class="nav navbar-nav" id="mainNav">                        
                         <li ng-class="{'active':selectedTab === 'home'}" ng-click="selectedTab = 'home'"><a href="index.php?action=home" ng-click="activate($event)">Home</a></li>
                         <li ng-class="{'active':selectedTab === 'about'}" ng-click="selectedTab = 'about'"><a href="index.php?action=about" ng-click="activate($event)">About Us</a></li>
                         <li ng-class="{'active':selectedTab === 'contact'}" ng-click="selectedTab = 'contact'"><a href="index.php?action=contact" ng-click="activate($event)">Contact</a></li>
@@ -75,8 +70,8 @@ session_start();
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    <?php
-                        switch ($_GET["action"]) {
+                    <?php 
+                        switch ($_GET['action']) {
                             case "home":
                                 include "./views/home.php";
                                 break;
@@ -120,5 +115,4 @@ session_start();
         <br>
         <span id="resolution">Recommended Resolution 1024x768</span>        
     </body>
-    <?php session_destroy(); ?>
 </html>

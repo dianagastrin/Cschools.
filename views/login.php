@@ -1,7 +1,6 @@
-
 <div class="jumbotron" id="titleLogin" ng-controller="loginCtrl">
     <h3><b>Happy To See You Again</b></h3><br>
-   <form action="loginServer.php" method="post">
+   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4"></div>

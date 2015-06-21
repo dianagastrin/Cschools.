@@ -59,18 +59,17 @@ session_start();
 
                     <ul class="nav navbar-nav navbar-right">
                         <?php
-                            // connected
-                            if(isset($_SESSION['login'])){
-                                echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate(\$event)\" > Profile </a></li>";
-                                echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"index.php?action=logout\"  ng-click=\"activate(\$event)\"> Logout</a></li>";
-
-                            }
-                            // not connected
-                            else{
-                                echo "<li ng-class=\"{'active':selectedTab === 'Login'}\" ng-click=\"selectedTab = 'Login'\"><a href=\"index.php?action=login\"  ng-click=\"activate(\$event)\"> Login </a></li>";
-                                echo "<li ng-class=\"{'active':selectedTab === 'registratoin'}\" ng-click=\"selectedTab = 'registration'\"><a href=\"index.php?action=registration\" ng-click=\"activate(\$event)\">Registration</a></li>";
-                            }
-
+                        // connected
+                        if (isset($_SESSION['login'])) {
+                            echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'welcome'\"><a href=\"\"  ng-click=\"activate(\$event)\"> Welcome,</a></li>";
+                            echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate(\$event)\" > Profile </a></li>";
+                            echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"index.php?action=logout\"  ng-click=\"activate(\$event)\"> Logout</a></li>";
+                        }
+                        // not connected
+                        else {
+                            echo "<li ng-class=\"{'active':selectedTab === 'Login'}\" ng-click=\"selectedTab = 'Login'\"><a href=\"index.php?action=login\"  ng-click=\"activate(\$event)\"> Login </a></li>";
+                            echo "<li ng-class=\"{'active':selectedTab === 'registratoin'}\" ng-click=\"selectedTab = 'registration'\"><a href=\"index.php?action=registration\" ng-click=\"activate(\$event)\">Registration</a></li>";
+                        }
                         ?>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -84,11 +83,9 @@ session_start();
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <?php
-                    
-                    if(!isset($_GET['action'])){
+                    if (!isset($_GET['action'])) {
                         include "./views/home.php";
-                    }
-                    else{
+                    } else {
                         switch ($_GET['action']) {
                             case "home":
                                 include "./views/home.php";
@@ -119,8 +116,9 @@ session_start();
                                 break;
                             case "logout":
                                 session_destroy();
-                                 echo "<script> window.location.href='index.php?action=home'; </script>";
-                               break;
+                                echo "<script> window.location.href='index.php?action=home'; </script>";
+                                break;
+                     
                             default:
                                 include "./views/home.php";
                         }
@@ -134,7 +132,7 @@ session_start();
 
         <!--Facebook Like code-->
         <br>
-        <?php var_dump($_SESSION) ?>
+        <?php //var_dump($_SESSION) ?>
 
         <div class="fb-like like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>

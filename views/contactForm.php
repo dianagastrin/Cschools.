@@ -61,7 +61,6 @@
 	if (!mysqli_query($con, $insertSql)) {
             die('Error: ' . mysqli_error($con));
 	}
-	echo "1 record added<br><br>";
 
 	
 	mysqli_close($con);

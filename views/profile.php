@@ -39,6 +39,8 @@ if (isset($_POST['submit'])) {
             die('Error: ' . mysqli_error($con));
         }
         $_SESSION['login'] = true;
+        $_SESSION['flname']= $fname." ".$lname;
+        echo "$_SESSION ['flname']";
         echo "<script> window.location.href='index.php?action=profile'; </script>";
     }
     mysqli_close($con);
@@ -93,7 +95,7 @@ else {
     
    echo "<div class='row'>
            <div class='col-md-4'></div>
-            <div class=\"col-md-4\"><img  src=\"images/permissionDenied.png\" height=\"300px\" width=\"300px\" alt=\"\"/>
+            <div class=\"col-md-4\"><img  src=\"images/permissionDenied.png\" height=\"240px\" width=\"240px\" alt=\"\"/>
             </div></div> ";
 }
 ?>

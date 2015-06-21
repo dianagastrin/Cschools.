@@ -96,7 +96,7 @@
         if(isset($_POST['author'])){
             $_POST['author'] = filter_var($_POST['author'],FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
             if ($_POST['author'] == "") {
-                echo ("lease enter a valid name.<br/><br/>");
+                echo ("Please enter a valid name.<br/><br/>");
                 $err = true;
             }
             else{
@@ -132,7 +132,6 @@
 	if (!mysqli_query($con, $insertSql)) {
             die('Error: ' . mysqli_error($con));
 	}
-	echo "1 record added<br><br>";
         }
 
 	

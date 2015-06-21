@@ -1,4 +1,3 @@
-
 <h1>Join Our Family</h1><br>
 
 <div id="status"></div><div class="container" ng-controller="registrationCtrl">

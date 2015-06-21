@@ -15,3 +15,7 @@ function forgot(){
         alert("Password was sent to : "+email);
     }
  };
+ 
+function logout(){
+   document.getElementById("logout").value="<?php $_SESSION['login']=false; ?> hello"
+}

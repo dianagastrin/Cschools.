@@ -12,7 +12,7 @@
                     <span class="asterix">*</span>Last Name: <input type="text" class="form-control input-lg"  name="lname" placeholder="Turing" autocomplete="on" required> 
                 </div>
                 <div class="col-md-1">
-                    Age: <input class="form-control input-lg" type="number" name="age" min="6" max="99" >
+                    Age: <input class="form-control input-lg" type="number" name="age" min="6" max="150">
                 </div>
             </div>
             <br>
@@ -30,7 +30,6 @@
             <div class="row">
                 <div class="col-md-4">
                     <span class="asterix">*</span>Choose Password: <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password"  required> <br>
-
                     <span class="asterix">*</span>Confirm Password: <input type="password" class="form-control input-lg" id="confirmPass" name="confirmPass" placeholder="Confirm Password" required > <br>
                 </div> 
             </div></div>

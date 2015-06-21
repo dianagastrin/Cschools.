@@ -59,7 +59,8 @@ session_start();
 
                     <ul class="nav navbar-nav navbar-right"> 
                         <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login"  ng-click="activate($event)"> Login </a></li>
-                        <li ng-class="{'active':selectedTab === 'Logout'}" ng-click="selectedTab = 'Logout'" >Logout</li>
+                        <li ng-class="{'active':selectedTab === 'Logout'}" ng-click="selectedTab = 'Logout'"><a href=""  ng-click="activate($event)"> Logout</a></li>
+
                         <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="index.php?action=registration" ng-click="activate($event)">Registration</a></li>
                         <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" > Profile </a></li> 
                     </ul>
@@ -115,7 +116,7 @@ session_start();
         <!--Facebook Like code-->
         <br>
         <?php var_dump($_SESSION) ?>
-        
+
         <div class="fb-like like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>
         <span id="resolution">Recommended Resolution 1024x768</span>     

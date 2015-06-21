@@ -21,20 +21,25 @@
             <a href="#" onclick="forgot();"> forgot password? </a>
         </div>
     </form>
+                <br><button id="logout" onclick="logout();"> logout </button>
+
+
     <?php
     $con = mysqli_connect("localhost", "root", "", "Group7");
     if (isset($_POST['submit'])) {
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        $username1 = filter_var($_POST['username1'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        if ($_POST['username'] == "") {
+       $username1= $_POST['username1'];
+        $username1 = filter_var($username1, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        if ($_POST['username1'] == "") {
             echo ("Please enter a valid user name.<br/><br/>");
         } else {
             $username = preg_replace('/[^a-zA-Z0-9\s]/', '', $_POST['username1']);
         }
-        $password1 = filter_var($_POST['password1'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        if ($_POST['password1'] == "") {
+        $password1=$_POST['password1'];
+        $password1 = filter_var($password1, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+        if ($password1 == "") {
             echo ("Please enter a valid password.<br/><br/>");
         } else {
             $password = preg_replace('/[^a-zA-Z0-9\s]/', '', $_POST['password1']);
@@ -46,6 +51,9 @@
                 $dbpassword = $row['password'];
                 if ($password == $dbpassword) {
                     $_SESSION['login'] = true;
+                    $_SESSION['username']=$username;
+                    
+
                     break;
                 } else
                     echo "Wrong Password :(";

@@ -61,14 +61,14 @@ session_start();
                         <?php
                             // connected
                             if($_SESSION['login']){
-                                echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate($event)\" > Profile </a></li>";
-                                echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"\"  ng-click=\"activate($event)\"> Logout</a></li>";
+                                echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate(\$event)\" > Profile </a></li>";
+                                echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"\"  ng-click=\"activate(\$event)\"> Logout</a></li>";
 
                             }
                             // not connected
                             else{
-                                echo "<li ng-class=\"{'active':selectedTab === 'Login'}\" ng-click=\"selectedTab = 'Login'\"><a href=\"index.php?action=login\"  ng-click=\"activate($event)\"> Login </a></li>";
-                                echo "<li ng-class=\"{'active':selectedTab === 'registratoin'}\" ng-click=\"selectedTab = 'registration'\"><a href=\"index.php?action=registration\" ng-click=\"activate($event)\">Registration</a></li>";
+                                echo "<li ng-class=\"{'active':selectedTab === 'Login'}\" ng-click=\"selectedTab = 'Login'\"><a href=\"index.php?action=login\"  ng-click=\"activate(\$event)\"> Login </a></li>";
+                                echo "<li ng-class=\"{'active':selectedTab === 'registratoin'}\" ng-click=\"selectedTab = 'registration'\"><a href=\"index.php?action=registration\" ng-click=\"activate(\$event)\">Registration</a></li>";
                             }
 
                         ?>
@@ -84,36 +84,42 @@ session_start();
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <?php
-                    switch ($_GET['action']) {
-                        case "home":
-                            include "./views/home.php";
-                            break;
-                        case "about":
-                            include "./views/about.php";
-                            break;
-                        case "contact":
-                            include "./views/contact.php";
-                            break;
-                        case "uploadFile":
-                            include "./views/uploadFile.php";
-                            break;
-                        case "home":
-                            include "./views/home.php";
-                            break;
-                        case "login":
-                            include "./views/login.php";
-                            break;
-                        case "registration":
-                            include "./views/registration.php";
-                            break;
-                        case "profile":
-                            include "./views/profile.php";
-                            break;
-                        case "course":
-                            include "./views/course.php";
-                            break;
-                        default:
-                            include "./views/home.php";
+                    
+                    if(!isset($_GET['action'])){
+                        include "./views/home.php";
+                    }
+                    else{
+                        switch ($_GET['action']) {
+                            case "home":
+                                include "./views/home.php";
+                                break;
+                            case "about":
+                                include "./views/about.php";
+                                break;
+                            case "contact":
+                                include "./views/contact.php";
+                                break;
+                            case "uploadFile":
+                                include "./views/uploadFile.php";
+                                break;
+                            case "home":
+                                include "./views/home.php";
+                                break;
+                            case "login":
+                                include "./views/login.php";
+                                break;
+                            case "registration":
+                                include "./views/registration.php";
+                                break;
+                            case "profile":
+                                include "./views/profile.php";
+                                break;
+                            case "course":
+                                include "./views/course.php";
+                                break;
+                            default:
+                                include "./views/home.php";
+                        }
                     }
                     ?>
                 </div>

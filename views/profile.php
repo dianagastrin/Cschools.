@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "Group7");
+$con = mysqli_connect("localhost", "root", "", "group7");
 if (isset($_POST['submit'])) {
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();

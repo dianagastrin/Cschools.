@@ -57,12 +57,21 @@ session_start();
                         <li ng-class="{'active':selectedTab === 'uploadFile'}" ng-click="selectedTab = 'uploadFile'"><a href="index.php?action=uploadFile" ng-click="activate($event)">Upload File</a></li>
                     </ul>       
 
-                    <ul class="nav navbar-nav navbar-right"> 
-                        <li ng-class="{'active':selectedTab === 'Login'}" ng-click="selectedTab = 'Login'"><a href="index.php?action=login"  ng-click="activate($event)"> Login </a></li>
-                        <li ng-class="{'active':selectedTab === 'Logout'}" ng-click="selectedTab = 'Logout'"><a href=""  ng-click="activate($event)"> Logout</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <?php
+                            // connected
+                            if($_SESSION['login']){
+                                echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate($event)\" > Profile </a></li>";
+                                echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"\"  ng-click=\"activate($event)\"> Logout</a></li>";
 
-                        <li ng-class="{'active':selectedTab === 'registratoin'}" ng-click="selectedTab = 'registration'"><a href="index.php?action=registration" ng-click="activate($event)">Registration</a></li>
-                        <li ng-class="{'active':selectedTab === 'Profile'}" ng-click="selectedTab = 'Profile'" ><a href="index.php?action=profile" ng-click="activate($event)" > Profile </a></li> 
+                            }
+                            // not connected
+                            else{
+                                echo "<li ng-class=\"{'active':selectedTab === 'Login'}\" ng-click=\"selectedTab = 'Login'\"><a href=\"index.php?action=login\"  ng-click=\"activate($event)\"> Login </a></li>";
+                                echo "<li ng-class=\"{'active':selectedTab === 'registratoin'}\" ng-click=\"selectedTab = 'registration'\"><a href=\"index.php?action=registration\" ng-click=\"activate($event)\">Registration</a></li>";
+                            }
+
+                        ?>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

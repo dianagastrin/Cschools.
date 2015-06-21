@@ -39,39 +39,38 @@ if (isset($_POST['submit'])) {
             die('Error: ' . mysqli_error($con));
         }
         $_SESSION['login'] = true;
-        $_SESSION['flname']= $fname." ".$lname;
+        $_SESSION['flname'] = $fname . " " . $lname;
         echo "$_SESSION ['flname']";
         echo "<script> window.location.href='index.php?action=profile'; </script>";
     }
     mysqli_close($con);
 }
-?>
 
-<?php
 
-    echo "<div class='container' ng-controller='profileCtrl'>
+echo "<div class='container' ng-controller='profileCtrl'>
         <div class='capitalize'> <h1> Profile</h1>
    </div>
   <div class='jumbotron'>";
-   if (isset($_SESSION['login'])){
-     echo "<div class='row'>
+if (isset($_SESSION['login'])) {
+    echo "<div class='row'>
            <div class='col-md-4'></div>
-            <div class=\"col-md-4\"><img id=\"profileImg\" src=\"images/anonymusOther.jpg\" alt=\"\"/>
-            </div></div> 
-                    <div class=\"row\">
-           <div class=\"col-lg-4\"></div> 
-           <div class=\"col-md-4\">
-                   </div>
-                    </div> 
-                   <form class=\"form-horizontal\">
-                   <div class=\"form-group\">
-                    <label class=\"col-sm-2 control-label\">User Name</label>
-                   <div class=\"col-sm-10\">
-                  <div class=\"form-control-static \">1</div>
-                   </div> 
-                   <label class=\"col-sm-2 control-label\">Password</label>
-                 <div class=\"col-sm-10\"><div class=\"form-control-static \">2</div>
+                <div class=\"col-md-4\">
+                    <img id=\"profileImg\" src=\"images/anonymusOther.jpg\" alt=\"\"/>
                 </div>
+          </div> 
+          <div class=\"row\">
+            <div class=\"col-lg-4\"></div> 
+            <div class=\"col-md-4\"></div>
+          </div> 
+          <form class=\"form-horizontal\">
+            <div class=\"form-group\">
+                <label class=\"col-sm-2 control-label\">User Name</label>
+                <div class=\"col-sm-10\">
+                     <div class=\"form-control-static \">1</div>
+                </div> 
+                <label class=\"col-sm-2 control-label\">Password</label>
+                <div class=\"col-sm-10\"><div class=\"form-control-static \">2</div>
+            </div>
                 <label class=\"col-sm-2 control-label\">Email</label>
                 <div class=\"col-sm-10\">
                     <div class=\"form-control-static\">3</div>
@@ -92,11 +91,12 @@ if (isset($_POST['submit'])) {
 }
 
 else {
-    
-   echo "<div class='row'>
-           <div class='col-md-4'></div>
-            <div class=\"col-md-4\"><img  src=\"images/permissionDenied.png\" height=\"240px\" width=\"240px\" alt=\"\"/>
-            </div></div> ";
+    echo "<div class='row'>
+            <div class='col-md-4'></div>
+            <div class=\"col-md-4\">
+                <img  src=\"images/permissionDenied.png\" height=\"240px\" width=\"240px\" alt=\"\"/>
+            </div>
+          </div> ";
 }
 ?>
 

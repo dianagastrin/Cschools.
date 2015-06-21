@@ -21,7 +21,6 @@
             <a href="#" onclick="forgot();"> forgot password? </a>
         </div>
     </form>
-                <br><button id="logout" onclick="logout();"> logout </button>
 
 
     <?php
@@ -52,15 +51,13 @@
                 if ($password == $dbpassword) {
                     $_SESSION['login'] = true;
                     $_SESSION['username']=$username;
-                    
-
+                    echo "<script> window.location.href='index.php?action=home'; </script>";
                     break;
                 } else
                     echo "Wrong Password :(";
             }
         } else echo "user does not exist!";
           mysqli_close($con);
-          echo "<script> window.onload();</script>";
     }
     ?>
 

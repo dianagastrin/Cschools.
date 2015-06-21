@@ -1,5 +1,8 @@
 <?php
-session_start();
+    session_start();
+    require "./db.php";
+    require "./utils.php";
+    db_connect();
 ?>
 <!DOCTYPE html>
 <html ng-app="cschools">

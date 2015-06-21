@@ -22,7 +22,6 @@
         </div>
     </form>
 
-
     <?php
     $con = mysqli_connect("localhost", "root", "", "Group7");
     if (isset($_POST['submit'])) {

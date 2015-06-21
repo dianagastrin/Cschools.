@@ -119,7 +119,8 @@ session_start();
                                 break;
                             case "logout":
                                 session_destroy();
-                                echo "<script> window.onload();</script>";
+                                 echo "<script> window.location.href='index.php?action=home'; </script>";
+                               break;
                             default:
                                 include "./views/home.php";
                         }

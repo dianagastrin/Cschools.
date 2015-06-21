@@ -38,6 +38,8 @@ $con = mysqli_connect("localhost", "root", "", "group7");
         die('Error: ' . mysqli_error($con));
     }
     $_SESSION['login'] = true;
+                        echo "<script> window.location.href='index.php?action=profile'; </script>";
+
      }
     mysqli_close($con);
 }

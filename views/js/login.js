@@ -16,6 +16,9 @@ function forgot(){
     }
  };
  
-function logout(){
-   document.getElementById("logout").value="<?php $_SESSION['login']=false; ?> hello"
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
 }

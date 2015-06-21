@@ -9,8 +9,8 @@
                 <br>We created this website in order to Help other Computer Science students from Israel.
                 <br>We hope this website would become your new friend!<br>
 
-                <b> If you have any notes <a href="#/contact">Contact With Us</a>
-                    <br>If you have Great Summaries, <a href="#/uploadFile">Upload</a> them And Be Famous!</b>
+                <b> If you have any notes <a href="index.php?action=contact">Contact With Us</a>
+                    <br>If you have Great Summaries, <a href="index.php?action=uploadFile">Upload</a> them And Be Famous!</b>
             </samp>
         </div>
         <div class="row">

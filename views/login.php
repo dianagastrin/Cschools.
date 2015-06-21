@@ -58,12 +58,10 @@
                 } else
                     echo "Wrong Password :(";
             }
-        } else
-            echo "user does not exist!";
+        } else echo "user does not exist!";
+          mysqli_close($con);
+          echo "<script> window.onload();</script>";
     }
-    mysqli_close($con);
-    if (!isset($_SESSION['login']))
-        session_destroy();
     ?>
 
 </div>

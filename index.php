@@ -60,9 +60,9 @@ session_start();
                     <ul class="nav navbar-nav navbar-right">
                         <?php
                             // connected
-                            if($_SESSION['login']){
+                            if(isset($_SESSION['login'])){
                                 echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate(\$event)\" > Profile </a></li>";
-                                echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"\"  ng-click=\"activate(\$event)\"> Logout</a></li>";
+                                echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"index.php?action=logout\"  ng-click=\"activate(\$event)\"> Logout</a></li>";
 
                             }
                             // not connected
@@ -117,6 +117,9 @@ session_start();
                             case "course":
                                 include "./views/course.php";
                                 break;
+                            case "logout":
+                                session_destroy();
+                                echo "<script> window.onload();</script>";
                             default:
                                 include "./views/home.php";
                         }

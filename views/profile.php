@@ -1,8 +1,10 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "group7");
 if (isset($_POST['submit'])) {
+$err=false;
+$con = mysqli_connect("localhost", "root", "", "group7");
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        $err=true;
     }
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
@@ -13,9 +15,8 @@ if (isset($_POST['submit'])) {
     $age = $_POST['age'];
     if (filter_var($age, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false) {
     echo("Variable value is not within the legal range");
-} else {
-    echo("Variable value is within the legal range");
-}
+    $err=true;
+} 
     $email = $_POST['email'];
     $email=filter_var($email, FILTER_SANITIZE_EMAIL);
         $username = $_POST['username'];
@@ -26,15 +27,18 @@ if (isset($_POST['submit'])) {
     $confirmPass = filter_var($confirmPass, FILTER_SANITIZE_STRING);
     if($password!=$confirmPass){
        echo "Pass don't match";
+       $err=true;
     }
     $gender = $_POST['gender'];
      $sendEmail = $_POST['sendEmail'];
+     if(!$err){
     $insertSql = "INSERT INTO login (userName,password,confirm_password,email,first_name,last_name,gender,send_email) "
             . "VALUES ('$username', '$password','$confirmPass','$email','$fname','$lname','$gender','$sendEmail')";
     if (!mysqli_query($con, $insertSql)) {
         die('Error: ' . mysqli_error($con));
     }
     $_SESSION['login'] = true;
+     }
     mysqli_close($con);
 }
 ?>

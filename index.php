@@ -26,6 +26,7 @@
         <script src="libs/angular/angular.js"></script>
         <script src="libs/angular/angular-route.js"></script>
         <!--webSite js-->
+        <?php require "./views/courseLoader.php"; ?>
         <script src="views/js/app.js"></script>
         <script src="views/js/home.js"></script>
         <script src="views/js/course.js"></script>
@@ -36,6 +37,8 @@
         <script src="views/js/registration.js"></script>
         <script src="views/js/uploadFile.js"></script>
         <script src="views/js/profile.js"></script>
+
+
 
     </head>
     <body ng-controller="mainCtrl">

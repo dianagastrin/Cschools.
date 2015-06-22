@@ -1,19 +1,11 @@
 'use strict';
 
-angular.module('cschools.home',[])
+angular.module('cschools.home')
 
 
-.controller('homeCtrl', ['$scope','$location', function($scope, $location) {
+.controller('homeCtrl', ['courses', '$scope','$location', function(courses, $scope, $location) {
   console.debug("home controller init");
   $scope.shouldShowSearchHelp = false;
-
-  var courses = [
-    { id: 0, name: "Introduction to computer science"},
-    { id: 3, name: "Algebra 1"},
-    { id: 9, name: "Algebra 2"},
-    { id: 12, name: "Calculus 1"},
-    { id: 14, name: "Calculus 2"},
-  ];
 
   $scope.courses = courses;
 

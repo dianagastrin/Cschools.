@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
 
     //get user db entries
     $query = db_query("SELECT * FROM login WHERE userName='$username'");
-    if($rows === false) {
+    if($query === false) {
         echo db_error();
         return;
     }

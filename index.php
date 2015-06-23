@@ -145,3 +145,4 @@
         <span id="resolution">Recommended Resolution 1024x768</span>     
     </body>
 </html>
+<?php db_close(); ?>

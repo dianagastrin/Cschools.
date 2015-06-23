@@ -15,7 +15,7 @@
 
                     //try to find a match
                     while( $row = mysqli_fetch_assoc($query)) {
-                        echo "<li><a href='".$base.$row['File_ID']."'>".$i.". ".$row['title']."</a></li>";
+                        echo "<li><a href='".$base.$row['File_ID']."'>".$i.". ".$row['Title']."</a></li>";
                         $i++;
                     }
                 ?>

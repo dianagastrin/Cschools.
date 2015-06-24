@@ -1,7 +1,6 @@
 <?php
     // handle registration (in profile page)
     if (isset($_POST['submit'])) {
-
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $fname = filter_var($fname, FILTER_SANITIZE_STRING);

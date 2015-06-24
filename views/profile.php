@@ -1,12 +1,14 @@
 <?php
-    require "form_handlers/registration.php";
+
+require "form_handlers/registration.php";
+
+if (isset($_SESSION['login'])) {
 
     echo "<div class='container' ng-controller='profileCtrl'>
-            <div class='capitalize'> <h1> Profile</h1>
+            <div class='capitalize'>  <h1> Profile</h1>
        </div>
       <div class='jumbotron'>";
-    if (isset($_SESSION['login'])) {
-        echo "<div class='row'>
+    echo "<div class='row'>
                <div class='col-md-4'></div>
                     <div class=\"col-md-4\">
                         <img id=\"profileImg\" src=\"images/anonymusOther.jpg\" alt=\"\"/>
@@ -42,16 +44,9 @@
                 </div>
         </div>
     </div>";
-    }
-
-    else {
-        echo "<div class='row'>
-                <div class='col-md-4'></div>
-                <div class=\"col-md-4\">
-                    <img  src=\"images/permissionDenied.png\" height=\"240px\" width=\"240px\" alt=\"\"/>
-                </div>
-              </div> ";
-    }
+} else{
+    include "form_handlers/permissionDenied.php";
+}
 ?>
 
 

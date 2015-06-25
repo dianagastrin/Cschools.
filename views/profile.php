@@ -1,9 +1,15 @@
 <?php
 
 require "form_handlers/registration.php";
-
 if (isset($_SESSION['login'])) {
-
+    $username=$_SESSION['username'];
+    $query="SELECT * From login RIGHT JOIN upload ON login.userName=upload.Author";
+    $result=db_query($query);
+     for($i=0; $i < mysqli_num_rows($result); $i++){
+                $row = mysqli_fetch_assoc($result);
+                echo "{ id:" . $i . ", name: '". $row['userName'] ."'},";
+            }
+    
     echo "<div class='container' ng-controller='profileCtrl'>
             <div class='capitalize'>  <h1> Profile</h1>
        </div>

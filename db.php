@@ -36,7 +36,6 @@
     function db_query($query) {
         $connection = db_connect();
         $res = mysqli_query($connection,$query);
-
         return $res;
     }
 

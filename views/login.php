@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control input-lg" id="password" name='password' placeholder="Password" autocomplete="on" required>
+                    <input type="password" class="form-control input-lg" id="password" name='password' placeholder="Password" autocomplete="on" required>
                 </div>
             </div>
             <a href="#" onclick="forgot();"> forgot password? </a>

@@ -24,12 +24,11 @@ if (isset($_SESSION['login'])) {
     $profile = $query[0]['profile_pic'];
     $email=$query[0]['email'];
     $password=$query[0]['password'];
-    $name=$query[0]['first_name'];
+    $fname=$query[0]['first_name'];
     $lname=$query[0]['last_name'];
     
- 
     echo "<div class='container' ng-controller='profileCtrl'>
-            <div class='capitalize'>  <h1>$name $lname</h1> </div>
+            <div class='capitalize'>  <h1>$fname $lname</h1> </div>
             <div class='jumbotron'>";
     echo "<div class='row'>
                     <div class='col-md-4'></div>

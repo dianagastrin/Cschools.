@@ -12,7 +12,6 @@
                         echo db_error();
                         return;
                     }
-
                     //try to find a match
                     while( $row = mysqli_fetch_assoc($query)) {
                         echo "<li><a href='".$base.$row['File_ID']."'>".$i.". ".$row['Title']."</a></li>";
@@ -50,6 +49,4 @@
     </div>
 
 </div>
-<div class="row">
-    <div class="col-md-4"><a href="#/course/{{courseId}}/{{courseName}}/quiz" class="btn btn-lg btn-success"> Go to Quiz </a></div>
-</div>
+

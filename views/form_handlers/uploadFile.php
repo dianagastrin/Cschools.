@@ -1,8 +1,6 @@
 <?php
     // handle uploadFile
     if(isset($_POST['submit'])){
-        echo "Submiting..\n";
-
         //adding new entry
         if(isset($_POST['name'])){
             $_POST['name'] = filter_var($_POST['name'],FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
@@ -59,7 +57,6 @@
         if (isset($_FILES['fileToUpload'])) {
             if ($_FILES["fileToUpload"]["size"] !=0) {
                 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/" . $_FILES["fileToUpload"]["name"]);
-                echo "File: '".$_FILES["fileToUpload"]["name"]."' upload successfully!";
                 $file=$_FILES["fileToUpload"]["name"];
             }
             else{
@@ -71,10 +68,17 @@
             pop_error("Please upload a file.");
             return;
         }
-
-        $insertSql = "INSERT INTO upload (Course_Name, Title, Notes, Author, File_Name) "
-            . "VALUES ('$cname', '$title', '$notes', '$author','$file')";
-
+        if (isset($_SESSION['username']))
+            $real_user=1;
+        else {
+         $real_user=0;
+         $author_guest= $author." (Guest) ";
+         $author=$author_guest;
+         
+        }
+        $insertSql = "INSERT INTO upload (Course_Name, Title, Notes, Author, File_Name,real_user) "
+            . "VALUES ('$cname', '$title', '$notes', '$author','$file','$real_user')";
+    pop_success("File uploaded Successfully!");
         if(!db_query($insertSql)){
             pop_error("error sending your message");
         }

@@ -5,10 +5,10 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="asterix">*</span>  First Name: <input type="text" class="form-control input-lg"  name="fname" placeholder="Alan" autocomplete="on" required>
+                    <span class="asterix">*</span> First Name: <input type="text" class="form-control input-lg"  name="fname" placeholder="Alan" autocomplete="on" required>
                 </div>
                 <div class="col-md-4">
-                    <span class="asterix">*</span>Last Name: <input type="text" class="form-control input-lg"  name="lname" placeholder="Turing" autocomplete="on" required> 
+                    <span class="asterix">*</span> Last Name: <input type="text" class="form-control input-lg"  name="lname" placeholder="Turing" autocomplete="on" required> 
                 </div>
                 <div class="col-md-1">
                     Age: <input class="form-control input-lg" type="number" name="age" min="6" max="150">
@@ -38,7 +38,7 @@
         <label for="female">Female</label>
         <input type="radio" name="gender" value="other" id="other">  
         <label for="other">Other</label> <br>
-        <input type="file" name="img" accept="image/*" id="fileToUpload">
+        <input type="file" name="fileToUpload" accept="image/*" id="fileToUpload">
         <label for="fileToUpload"> *optional Upload Profile Picture </label>
         <br> <br>
         <input type="checkbox" name="sendEmail" value="1" id="checkEmail" checked>

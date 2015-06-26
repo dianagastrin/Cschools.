@@ -29,9 +29,15 @@
         }
         $gender = $_POST['gender'];
         $sendEmail = $_POST['sendEmail'];
-
-        $insertSql = "INSERT INTO login (userName,password,confirm_password,email,first_name,last_name,gender,send_email) "
-            . "VALUES ('$username', '$password','$confirmPass','$email','$fname','$lname','$gender','$sendEmail')";
+        $file=false;
+         if (isset($_FILES['fileToUpload'])) {
+                move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/profile/" . $_FILES["fileToUpload"]["name"]);
+                $file=$_FILES["fileToUpload"]["name"];
+        }
+        
+        
+        $insertSql = "INSERT INTO login (userName,password,confirm_password,email,first_name,last_name,gender,send_email, profile_pic) "
+            . "VALUES ('$username', '$password','$confirmPass','$email','$fname','$lname','$gender','$sendEmail', '$file')";
 
         if(!db_query($insertSql)){
             pop_error("error sending your message");

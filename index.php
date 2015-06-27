@@ -66,7 +66,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <?php
                         // connected
-                        if (isset($_SESSION['login'])) {
+                        if (isset($_SESSION['isLogged'])) {
                             echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'welcome'\"><a href=\"\"  ng-click=\"activate(\$event)\"> Welcome, ".$_SESSION['username']."</a></li>";
                             echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate(\$event)\" > Profile </a></li>";
                             echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"index.php?action=logout\"  ng-click=\"activate(\$event)\"> Logout</a></li>";

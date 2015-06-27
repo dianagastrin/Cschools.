@@ -36,15 +36,21 @@
         }
         
         
-        $insertSql = "INSERT INTO login (userName,password,confirm_password,email,first_name,last_name,gender,send_email, profile_pic) "
-            . "VALUES ('$username', '$password','$confirmPass','$email','$fname','$lname','$gender','$sendEmail', '$file')";
+        $insertSql = "INSERT INTO user (username,password,confirm_password) "
+            . "VALUES ('$username', '$password','$confirmPass')";
 
+        $insert= "INSERT INTO user_info (email,first_name,last_name,gender,send_email,profile_pic)"
+                . "VALUES ('$email','$fname','$lname','$gender','$sendEmail', '$file')";
+        
         if(!db_query($insertSql)){
-            pop_error("error sending your message");
+            pop_error("error sending your message1");
             return;
         }
-
-        $_SESSION['login'] = true;
+         if(!db_query($insert)){
+            pop_error("error sending your message2");
+            return;
+        }
+        $_SESSION['isLogged']=true;
         $_SESSION['flname'] = $fname . " " . $lname;
         $_SESSION['username'] = $username;
         echo "<script> window.location.href='index.php?action=profile'; </script>";

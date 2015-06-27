@@ -1,33 +1,8 @@
 <?php
 
 require "form_handlers/registration.php";
-if (isset($_SESSION['login'])) {
-
-    $username = $_SESSION['username'];
-    $query = "SELECT Title,Course_Name,File_Name,real_user From upload WHERE Author='$username'";
-    $result = db_select($query);
-    //print_r($result);
-    $i = 0;
-    $j = 0;
-    $file = false;
-    foreach ($result as $x => $x_value) {
-        foreach ($x_value as $value) {
-            $file[$i][$j] = $value;
-            $j++;
-        }
-        $i++;
-        $j = 0;
-    }
-
-    $query = "SELECT * FROM login Where userName='$username'";
-    $query = db_select($query);
-    $gender = $query[0]['gender'];
-    $profile = $query[0]['profile_pic'];
-    $email = $query[0]['email'];
-    $password = $query[0]['password'];
-    $fname = $query[0]['first_name'];
-    $lname = $query[0]['last_name'];
-    
+if (isset($_SESSION['isLogged'])) {
+   require "form_handlers/profile.php";
     echo "<div class='container' ng-controller='profileCtrl'>
             <div class='capitalize'>  <h1>$fname $lname</h1> </div>
             <div class='jumbotron'>";

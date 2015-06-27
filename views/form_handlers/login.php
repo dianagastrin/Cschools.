@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $password = preg_replace('/[^a-zA-Z0-9\s]/', '', $password);
 
     //get user db entries
-    $query = db_query("SELECT * FROM login WHERE userName='$username'");
+    $query = db_query("SELECT * FROM user JOIN user_info ON user.ID=user_info.ID WHERE user.userName='$username'");
     if($query === false) {
         echo db_error();
         return;
@@ -31,7 +31,6 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($query);
         //try to match password
         if ($password == $row['password']) {
-            $_SESSION['login'] = true;
             $_SESSION['username'] = $username;
             echo "<script> window.location.href='index.php?action=home'; </script>";
         }

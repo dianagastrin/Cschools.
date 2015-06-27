@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-2">Course Name:</div>
         <div class="col-md-5">
-            <input type="text" name="name" class="form-control input-lg" ng-model="search_key" name="name" placeholder="Enter Course Name" ng-change="shouldHideSearchHelp()" required>
+            <input type="text" name="name" class="form-control input-lg" ng-model="search_key" name="name" placeholder="Enter Course Name" ng-change="shouldHideSearchHelp()" autocomplete='off' required>
         </div>
         <div class="col-md-5"></div>
     </div>

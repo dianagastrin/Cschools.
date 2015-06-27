@@ -27,8 +27,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <span class="asterix">*</span>Choose Password: <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password"  required> <br>
+                <div class="col-md-4"> 
+                    <span class="asterix">*</span>Choose Password(min=6, max=10): <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password"  required> <br>
                     <span class="asterix">*</span>Confirm Password: <input type="password" class="form-control input-lg" id="confirmPass" name="confirmPass" placeholder="Confirm Password" required > <br>
                 </div> 
             </div></div>
@@ -48,7 +48,7 @@
         <input type="reset" class="btn btn-primary btn-success btn-lg" value="Reset"></div>
     </form>
 
-  
+
 </div>
 
 

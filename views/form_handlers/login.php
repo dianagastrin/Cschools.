@@ -1,7 +1,7 @@
 <?php
 // handle login
 if (isset($_POST['submit'])) {
-
+    
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
     $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
@@ -20,12 +20,12 @@ if (isset($_POST['submit'])) {
     $password = preg_replace('/[^a-zA-Z0-9\s]/', '', $password);
 
     //get user db entries
-    $query = db_query("SELECT * FROM user JOIN user_info ON user.ID=user_info.ID WHERE user.userName='$username'");
+    $query = db_query("SELECT * FROM user WHERE user.userName='$username'");
     if($query === false) {
         echo db_error();
         return;
     }
-
+    
     //try to find a match
     if (mysqli_num_rows($query) > 0) {
         $row = mysqli_fetch_assoc($query);
@@ -42,5 +42,7 @@ if (isset($_POST['submit'])) {
     else{
         pop_error("User does not exist");
     }
+    $_SESSION['isLogged']=true;
+    
 }
 ?>

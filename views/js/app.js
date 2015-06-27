@@ -8,7 +8,6 @@ angular.module('cschools', [
   'cschools.contact',
   'cschools.about',
   'cschools.login',
-  'cschools.quiz',
   'cschools.uploadFile',
   'cschools.registration',
   'cschools.profile'

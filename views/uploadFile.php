@@ -43,7 +43,7 @@
             <div class="row">
     <div class="col-md-2">
   
-         Author: </div> <div class="col-md-4"><input type="text" class="form-control input-lg" name="author" placeholder="Steve Paul Jobs" autocomplete="on" <?php if(isset($_SESSION['username'])) {echo "value='".$_SESSION['username']."'"; echo "disabled";} ?> required>
+         Author: </div> <div class="col-md-4"><input type="text" class="form-control input-lg" name="author" placeholder="Steve Paul Jobs" autocomplete="on" <?php if(isset($_SESSION['username'])) {echo "value='".$_SESSION['username']."'";} ?> required>
         
         </div> </div>
     <div class="row">

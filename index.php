@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="views/css/uploadFile.css">
         <link rel="stylesheet" href="views/css/about.css">
         <link rel="stylesheet" href="views/css/app.css">
-        <link rel="stylesheet" href="views/css/quiz.css">
         <link rel="stylesheet" href="views/css/course.css">
         <link rel="stylesheet" href="views/css/profile.css">
         <link rel="stylesheet" href="views/css/login.css">
@@ -33,7 +32,6 @@
         <script src="views/js/contact.js"></script>
         <script src="views/js/about.js"></script>
         <script src="views/js/login.js"></script>
-        <script src="views/js/quiz.js"></script>
         <script src="views/js/registration.js"></script>
         <script src="views/js/uploadFile.js"></script>
         <script src="views/js/profile.js"></script>

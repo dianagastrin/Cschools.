@@ -2,7 +2,7 @@
 
 require "form_handlers/registration.php";
 if (isset($_SESSION['isLogged'])) {
-   require "form_handlers/profile.php";
+    require "form_handlers/profile.php";
     echo "<div class='container' ng-controller='profileCtrl'>
             <div class='capitalize'>  <h1>$fname $lname</h1> </div>
             <div class='jumbotron'>";
@@ -45,11 +45,12 @@ if (isset($_SESSION['isLogged'])) {
                                         <div class=\"form-control-static\">
                                             <ol>";
         foreach ($file as $val) {
-            $real_user= $val[3];
-            if($real_user==1){
-            echo "<li><b>Name:</b> $val[0]<br>"
-            . "<b>Title:</b> $val[1]<br>"
-            . " <a href=\"views/uploadFiles/$val[2]\"> $val[2] </a> </li>";}
+            $real_user = $val[3];
+            if ($real_user == 1) {
+                echo "<li><b>Name:</b> $val[0]<br>"
+                . "<b>Title:</b> $val[1]<br>"
+                . " <a href=\"views/uploadFiles/$val[2]\"> $val[2] </a> </li>";
+            }
         }
 
         echo "</ol>
@@ -60,9 +61,11 @@ if (isset($_SESSION['isLogged'])) {
                                 </div>
                         </div>
                     </div>";
-} else {
-    include "form_handlers/permissionDenied.php";
-}
+} 
+    else {
+        include "form_handlers/permissionDenied.php";
+    }
+
 ?>
 
 

@@ -1,40 +1,42 @@
 <?php
 // handle login
 if (isset($_POST['submit'])) {
-    
-    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+    $err=false;
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+    $usernameS = filter_var($username, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+    $passwordS = filter_var($password, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
-    //empty input and filter error handling
-    if ($_POST['username'] == "" || $username == false) {
+    //handle unvalid user name
+   if ($usernameS == "" || $usernameS == false ||$usernameS!=$username ) {
         pop_error("Please enter a valid user name");
+        $err=true;
         return;
     }
-
-    if ($password == "" || $password == false) {
-        echo ("Please enter a valid password.<br/><br/>");
+   //handle unvalid password
+    if ($passwordS == "" || $passwordS == false || $password!=$passwordS) {
+        pop_error("Please enter a valid password");
+        $err=true;
         return;
     }
-
-    $username = preg_replace('/[^a-zA-Z0-9\s]/', '', $username);
-    $password = preg_replace('/[^a-zA-Z0-9\s]/', '', $password);
-
+    if(!$err){
     //get user db entries
     $query = db_query("SELECT * FROM user WHERE user.userName='$username'");
     if($query === false) {
         echo db_error();
         return;
     }
-    
     //try to find a match
     if (mysqli_num_rows($query) > 0) {
         $row = mysqli_fetch_assoc($query);
         //try to match password
         if ($password == $row['password']) {
             $_SESSION['username'] = $username;
+            $_SESSION['isLogged']=true;
             echo "<script> window.location.href='index.php?action=home'; </script>";
         }
         else {
+            
             pop_error("Wrong password");
         }
     }
@@ -42,7 +44,7 @@ if (isset($_POST['submit'])) {
     else{
         pop_error("User does not exist");
     }
-    $_SESSION['isLogged']=true;
+    }
     
 }
 ?>

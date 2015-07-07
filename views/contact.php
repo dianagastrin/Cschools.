@@ -8,7 +8,7 @@
     <form method="post" action="" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-3">What is your name? </div>
-            <div class="col-md-5"><input type="text" class="form-control input-lg" name="name" placeholder="John Snow" autocomplete="on" <?php if(isset($_SESSION['username'])) {echo "value='".$_SESSION['flname']."'";} ?> required></div>
+            <div class="col-md-5"><input type="text" class="form-control input-lg" name="name" placeholder="John Snow" autocomplete="on" <?php if(isset($_SESSION['username'])) {echo "value='".$_SESSION['username']."'"; } ?> required></div>
             <div class="col-md-4"></div>
         </div>
         <div class="row">

@@ -13,6 +13,13 @@
         <div class="col-md-5"></div>
     </div>
     <br>
+                   <div class="row">
+    <div class="col-md-2">
+  
+         Lecturer: </div> <div class="col-md-5"><input type="text" class="form-control input-lg" name="lecturer" placeholder="Alan Turing" autocomplete="on" required>
+        
+        </div> </div>
+    <br>
     <div class="row">
         <div class="col-md-2">Document Title:</div>
         <div class="col-md-5">
@@ -38,6 +45,8 @@
             <textarea name="message" ng-model="message" class="form-control input-lg" cols="80" rows="7" placeholder="If you have any notes you can write them here.."></textarea></div>
         <div class="col-md-5"></div>
     </div>
+
+    <br>
 
     <br>
             <div class="row">

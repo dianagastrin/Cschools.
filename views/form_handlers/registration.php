@@ -1,5 +1,4 @@
 <?php
-
 // handle registration (in profile page)
 if (isset($_POST['submit'])) {
     $err = false;
@@ -15,14 +14,14 @@ if (isset($_POST['submit'])) {
     $passwordS = filter_var($password, FILTER_SANITIZE_STRING);
     $confirmPass = $_POST['confirmPass'];
     $confirmPassS = filter_var($confirmPass, FILTER_SANITIZE_STRING);
-        $min_age = 6;
+    $min_age = 6;
     $max_age = 120;
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $sendEmail = $_POST['sendEmail'];
     $file = false;
 
-    if ($fname != $fnameS || $lname != $lnameS  || $email != $emailS || $username != $usernameS || $password!=$passwordS || $fnameS = false || $lnameS = false || $ageS = false || $emailS = false || $usernameS = false) {
+    if ($fname != $fnameS || $lname != $lnameS || $email != $emailS || $username != $usernameS || $password != $passwordS || $fnameS = false || $lnameS = false || $ageS = false || $emailS = false || $usernameS = false) {
         pop_error("Un Valid Parameters");
         $err = true;
         return;
@@ -32,17 +31,15 @@ if (isset($_POST['submit'])) {
         $err = true;
         return;
     }
-    
-    //handle this.
-      if ($err==false) {
-        $query = "SELECT * From user WHERE user.name='$username'";
-        $querySel = db_select($query);
-        if ($querySel==false) {
+    if ($err == false) {
+        $query = "SELECT * From user WHERE username='$username'";
+        $querySel = db_query($query);
+         if (mysql_num_rows($query) != 0){
             pop_error("Username already exists!");
             $err = true;
             return;
         }
-      }
+    }
     $min = 5;
     $max = 10;
     if (filter_var(strlen($username), FILTER_VALIDATE_INT, array("options" => array("min_range" => $min, "max_range" => $max))) === false) {
@@ -52,7 +49,7 @@ if (isset($_POST['submit'])) {
     }
     if (filter_var(strlen($password), FILTER_VALIDATE_INT, array("options" => array("min_range" => $min, "max_range" => $max))) === false) {
         pop_error("Password is not within the legal range");
-        $err=true;
+        $err = true;
         return;
     }
     if ($password != $confirmPass) {
@@ -60,8 +57,6 @@ if (isset($_POST['submit'])) {
         $err = true;
         return;
     }
-  
-
     if (!$err) {
         if (isset($_FILES['fileToUpload'])) {
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/profile/" . $_FILES["fileToUpload"]["name"]);
@@ -83,8 +78,6 @@ if (isset($_POST['submit'])) {
         $_SESSION['isLogged'] = true;
         $_SESSION['username'] = $username;
         echo "<script> window.location.href='index.php?action=profile'; </script>";
-    } else {
-        pop_error("Un Valid Parameters1");
-    }
+    } 
 }
 ?>

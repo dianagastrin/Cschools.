@@ -54,12 +54,12 @@ if (isset($_SESSION['isLogged'])) {
         }
 
         echo "</ol>
-                                        </div>";
+                 </div>";
     }
     echo "
         </div>
-                                </div>
-                        </div>
+               </div>
+                     </div>
                     </div>";
 } 
     else {

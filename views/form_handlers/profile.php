@@ -1,11 +1,11 @@
 <?php
-
  $username = $_SESSION['username'];
-    $query = "SELECT Title,Course_Name,File_Name,real_user From upload WHERE Author='$username'";
+    $query = "SELECT Course_Name,Title,File_Name,real_user From upload Where Author='$username'";
     $result = db_select($query);
     $i = 0;
     $j = 0;
     $file = false;
+    
     foreach ($result as $x => $x_value) {
         foreach ($x_value as $value) {
             $file[$i][$j] = $value;
@@ -15,7 +15,7 @@
         $j = 0;
     }
 
-    $query = "SELECT * FROM user_info JOIN user ON user_info.ID=user.ID Where user.userName='$username'";
+    $query = "SELECT gender,profile_pic,email,password,first_name,last_name FROM user_info JOIN user ON user_info.ID=user.ID Where user.userName='$username'";
     $query = db_select($query);
     $gender = $query[0]['gender'];
     $profile = $query[0]['profile_pic'];

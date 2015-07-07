@@ -1,7 +1,8 @@
 <h1>Join Our Family</h1><br>
+<?php require "form_handlers/registration.php";?>
 
 <div id="status"></div><div class="container" ng-controller="registrationCtrl">
-    <form  method="post" action="index.php?action=profile" enctype="multipart/form-data" >
+    <form  method="post" action="" enctype="multipart/form-data" >
         <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
@@ -44,7 +45,7 @@
         <input type="checkbox" name="sendEmail" value="1" id="checkEmail" checked>
         <label for="checkEmail"> Send Me Interesting Emails </label>
         <br> <br>
-        <input type="submit" name="submit" class="btn btn-primary btn-lg" value="Submit" onclick="return validPass();">
+        <input type="submit" name="submit" class="btn btn-primary btn-lg" value="Submit" onclick="return validPass(); ">
         <input type="reset" class="btn btn-primary btn-success btn-lg" value="Reset"></div>
     </form>
 

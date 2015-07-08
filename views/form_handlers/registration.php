@@ -1,4 +1,5 @@
 <?php
+
 // handle registration (in profile page)
 if (isset($_POST['submit'])) {
     $err = false;
@@ -32,9 +33,9 @@ if (isset($_POST['submit'])) {
         return;
     }
     if ($err == false) {
-        $query = "SELECT * From user WHERE username='$username'";
+        $query = "SELECT * From user Where username='$username'";
         $querySel = db_query($query);
-         if (mysql_num_rows($query) != 0){
+        if (mysqli_num_rows($querySel) != 0) {
             pop_error("Username already exists!");
             $err = true;
             return;
@@ -61,23 +62,37 @@ if (isset($_POST['submit'])) {
         if (isset($_FILES['fileToUpload'])) {
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/profile/" . $_FILES["fileToUpload"]["name"]);
             $file = $_FILES["fileToUpload"]["name"];
+            echo $_FILES['fileToUpload']['size'];
+            if ($_FILES['fileToUpload']['size'] > 5000000) {
+                pop_error("Exceeded filesize limit.");
+                $err = true;
+                return;
+            }
+            $allowed = array('gif','jpg','jpeg','png');
+            $filename = $_FILES['fileToUpload']['name'];
+            $ext =strtolower( pathinfo($filename, PATHINFO_EXTENSION));
+            if (!in_array($ext, $allowed)) {
+                pop_error("unvalid format");
+                $err=true;
+                return;
+            }
         }
-        $insertIntoUser = "INSERT INTO user (username,password,confirm_password) "
-                . "VALUES ('$username', '$password','$confirmPass')";
-        $insertIntoUserInfo = "INSERT INTO user_info (email,first_name,last_name,gender,send_email,profile_pic)"
-                . "VALUES ('$email','$fname','$lname','$gender','$sendEmail', '$file')";
+        if ($err == false) {
+            $insertIntoUser = "INSERT INTO user (username,password,confirm_password) "
+                    . "VALUES ('$username', '$password','$confirmPass')";
+            $insertIntoUserInfo = "INSERT INTO user_info (email,first_name,last_name,gender,send_email,profile_pic)"
+                    . "VALUES ('$email','$fname','$lname','$gender','$sendEmail', '$file')";
 
-        if (!db_query($insertIntoUser)) {
+            if (!db_query($insertIntoUser) ||!db_query($insertIntoUserInfo) ) {
+                pop_error("error sending your message");
+                return;
+            }
+            $_SESSION['isLogged'] = true;
+            $_SESSION['username'] = $username;
+            echo "<script> window.location.href='index.php?action=profile'; </script>";
+        } else {
             pop_error("error sending your message");
-            return;
         }
-        if (!db_query($insertIntoUserInfo)) {
-            pop_error("error sending your message");
-            return;
-        }
-        $_SESSION['isLogged'] = true;
-        $_SESSION['username'] = $username;
-        echo "<script> window.location.href='index.php?action=profile'; </script>";
-    } 
+    }
 }
 ?>

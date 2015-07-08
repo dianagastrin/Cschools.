@@ -1,4 +1,5 @@
 <?php
+
 // handle uploadFile
 if (isset($_POST['submit'])) {
     $err = false;
@@ -58,7 +59,8 @@ if (isset($_POST['submit'])) {
         $err = true;
         return;
     }
-       if (isset($_POST['lecturer'])) {
+    $author = $_POST['author'];
+    if (isset($_POST['lecturer'])) {
         $_POST['lecturer'] = filter_var($_POST['lecturer'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
         if ($_POST['lecturer'] == "") {
             pop_error("Please enter a valid name.");
@@ -71,17 +73,18 @@ if (isset($_POST['submit'])) {
         $err = true;
         return;
     }
-
+    $lecturer = preg_replace('/[^a-zA-Z0-9\s]/', '', $_POST['lecturer']);
     if (isset($_FILES['fileToUpload'])) {
         if ($_FILES["fileToUpload"]["size"] != 0) {
-            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/" . $_FILES["fileToUpload"]["name"]);
             $file = $_FILES["fileToUpload"]["name"];
+            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/" . $file);
         } else {
             pop_error("file is empty.");
             $err = true;
 
             return;
         }
+ 
     } else {
         pop_error("Please upload a file.");
         $err = true;
@@ -94,17 +97,16 @@ if (isset($_POST['submit'])) {
         $author_guest = $author . " (Guest) ";
         $author = $author_guest;
     }
-    if ($err = false) {
-        $insertSql = "INSERT INTO upload (Course_Name, Title, Notes, Author,lecturer, File_Name,real_user) "
-                . "VALUES ('$cname', '$title', '$notes', '$author','$file','$real_user')";
+    if ($err == false) {
+        $insertSql = "INSERT INTO upload (Course_Name, Title, Notes, Author,lecturer,File_Name,real_user) "
+                . "VALUES ('$cname', '$title', '$notes', '$author', '$lecturer','$file','$real_user')";
         pop_success("File uploaded Successfully!");
         if (!db_query($insertSql)) {
             pop_error("error sending your message");
             return;
         }
+    } else {
+        pop_error("error sending your message");
     }
-else {
-    pop_error("error sending your message");
 }
-} 
 ?>

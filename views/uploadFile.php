@@ -56,11 +56,10 @@
         
         </div> </div>
     <div class="row">
-        <div class="col-md-2">File To Upload:</div><br><br>
+        <div class="col-md-5"> <label for="fileToUpload"> <b>File To Upload </b> (up to 9.5 MB (pdf,doc,docx,pptx,ppt)): </label></div><br><br>
         <div class="col-md-3">
             <input type="file" name="fileToUpload" id="fileToUpload" required>
         </div>
-        <div class="col-md-8"></div>
     </div>
     <br>
     <div class="row"> <div class="col-md-2"></div> <div class="col-md-4">

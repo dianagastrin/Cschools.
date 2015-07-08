@@ -74,30 +74,42 @@ if (isset($_POST['submit'])) {
         return;
     }
     $lecturer = preg_replace('/[^a-zA-Z0-9\s]/', '', $_POST['lecturer']);
-    if (isset($_FILES['fileToUpload'])) {
-        if ($_FILES["fileToUpload"]["size"] != 0) {
-            $file = $_FILES["fileToUpload"]["name"];
-            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/" . $file);
-        } else {
-            pop_error("file is empty.");
+    if (!empty($_FILES['fileToUpload']['name'])) {
+        $filename=$_FILES["fileToUpload"]["name"];
+        $allowed = array('pdf', 'doc', 'docx', 'pptx', 'ppt');
+        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+        $file = microtime() . '.' . $ext;
+        if (!in_array($ext, $allowed)) {
+            pop_error("unvalid format");
             $err = true;
-
             return;
         }
- 
+        if ($_FILES['fileToUpload']['size'] > 10000000) {
+            pop_error("Exceeded filesize limit.");
+            $err = true;
+            return;
+        }
+        if (!$err) {
+            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/" . $file);
+        } else {
+            pop_error("file was not uploaded");
+            $err=true;
+            return;
+        }
     } else {
         pop_error("Please upload a file.");
         $err = true;
         return;
     }
-    if (isset($_SESSION['username'])) {
-        $real_user = 1;
-    } else {
-        $real_user = 0;
-        $author_guest = $author . " (Guest) ";
-        $author = $author_guest;
-    }
-    if ($err == false) {
+
+    if (!$err) {
+        if (isset($_SESSION['username'])) {
+            $real_user = 1;
+        } else {
+            $real_user = 0;
+            $author_guest = $author . " (Guest) ";
+            $author = $author_guest;
+        }
         $insertSql = "INSERT INTO upload (Course_Name, Title, Notes, Author,lecturer,File_Name,real_user) "
                 . "VALUES ('$cname', '$title', '$notes', '$author', '$lecturer','$file','$real_user')";
         pop_success("File uploaded Successfully!");

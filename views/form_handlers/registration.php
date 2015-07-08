@@ -59,25 +59,27 @@ if (isset($_POST['submit'])) {
         return;
     }
     if (!$err) {
-        if (isset($_FILES['fileToUpload'])) {
-            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/profile/" . $_FILES["fileToUpload"]["name"]);
-            $file = $_FILES["fileToUpload"]["name"];
-            echo $_FILES['fileToUpload']['size'];
+        if (!empty($_FILES['fileToUpload']['name'])) {
+            $filename=$_FILES["fileToUpload"]["name"];
+            $allowed = array('gif','jpg','jpeg','png');
+            $ext =strtolower( pathinfo($filename, PATHINFO_EXTENSION));
+            $file = microtime() . '.' .$ext;
+              if (!in_array($ext, $allowed)) {
+                pop_error("unvalid format");
+                $err=true;
+                return;
+            }
             if ($_FILES['fileToUpload']['size'] > 5000000) {
                 pop_error("Exceeded filesize limit.");
                 $err = true;
                 return;
             }
-            $allowed = array('gif','jpg','jpeg','png');
-            $filename = $_FILES['fileToUpload']['name'];
-            $ext =strtolower( pathinfo($filename, PATHINFO_EXTENSION));
-            if (!in_array($ext, $allowed)) {
-                pop_error("unvalid format");
-                $err=true;
-                return;
+            if(!$err){
+            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "views/uploadFiles/profile/" .$file);
             }
+            else {pop_error ("file was not uploaded");}
         }
-        if ($err == false) {
+        if (!$err) {
             $insertIntoUser = "INSERT INTO user (username,password,confirm_password) "
                     . "VALUES ('$username', '$password','$confirmPass')";
             $insertIntoUserInfo = "INSERT INTO user_info (email,first_name,last_name,gender,send_email,profile_pic)"

@@ -35,7 +35,7 @@
                                         $row = mysqli_fetch_assoc($query);
                                         echo "<span class='head'>Lecturer: </span>".$row['lecturer']."<br>";
                                         echo "<span class='head'>Notes:</span> <br>".$row['Notes']."<br><br>";
-                                        echo "<span class='head'>File link:</span> <br><a href='./views/uploadFiles/".$row['File_Name']."' target='_blank'>".$row['File_Name']."</a><br><br>";
+                                        echo "<span class='head'>File link:</span> <br><a href='./views/uploadFiles/".$row['File_Name']."' target='_blank'>".$row['Title']."</a><br><br>";
                                         echo "<span class='head'>Uploaded By: </span>".$row['Author']."<br>";                                     
 
                                     }

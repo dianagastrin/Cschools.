@@ -47,9 +47,8 @@ if (isset($_SESSION['isLogged'])) {
         foreach ($file as $val) {
             $real_user = $val[3];
             if ($real_user == 1) {
-                echo "<li><b>Name:</b> $val[0]<br>"
-                . "<b>Title:</b> $val[1]<br>"
-                . " <a href=\"views/uploadFiles/$val[2]\"> $val[2] </a> </li>";
+                echo "<li><b>Course:</b> $val[0]<br>"
+                . "<b>File:</b> <a href=\"views/uploadFiles/$val[2]\"> $val[1] </a> <br>";
             }
         }
 

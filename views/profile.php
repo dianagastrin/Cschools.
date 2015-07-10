@@ -1,5 +1,4 @@
 <?php
-
 require "form_handlers/registration.php";
 if (isset($_SESSION['isLogged'])) {
     require "form_handlers/profile.php";
@@ -21,11 +20,11 @@ if (isset($_SESSION['isLogged'])) {
             echo "<img id=\"profileImg\" src=\"images/anonymusOther.jpg\" alt=\"\"/>";
     }
     echo "</div>
-                    </div>
-                              <div class=\"row\">
-                                <div class=\"col-lg-4\"></div>
-                                <div class=\"col-md-4\"></div>
-                              </div>
+             </div>
+               <div class=\"row\">
+                      <div class=\"col-lg-4\"></div>
+                           <div class=\"col-md-4\"></div>
+                            </div>
                               <form class=\"form-horizontal\">
                                 <div class=\"form-group\">
                                     <label class=\"col-sm-2 control-label\">User Name</label>
@@ -51,20 +50,17 @@ if (isset($_SESSION['isLogged'])) {
                 . "<b>File:</b> <a href=\"views/uploadFiles/$val[2]\"> $val[1] </a> <br>";
             }
         }
-
         echo "</ol>
-                 </div>";
+              </div>";
     }
     echo "
         </div>
                </div>
                      </div>
                     </div>";
-} 
-    else {
-        include "form_handlers/permissionDenied.php";
-    }
-
+} else {
+    include "form_handlers/permissionDenied.php";
+}
 ?>
 
 

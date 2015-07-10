@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    require "./db.php";
-    require "./utils.php";
-    db_connect();
+session_start();
+require "./db.php";
+require "./utils.php";
+db_connect();
 ?>
 <!DOCTYPE html>
 <html ng-app="cschools">
@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="views/css/profile.css">
         <link rel="stylesheet" href="views/css/login.css">
         <link rel="stylesheet" href="views/css/home.css">
-
         <!-- Angular libs -->
         <script src="libs/angular/angular.js"></script>
         <script src="libs/angular/angular-route.js"></script>
@@ -35,9 +34,6 @@
         <script src="views/js/registration.js"></script>
         <script src="views/js/uploadFile.js"></script>
         <script src="views/js/profile.js"></script>
-
-
-
     </head>
     <body ng-controller="mainCtrl">
         <!-- header navigation for the website - will stay on top while page content changes -->
@@ -65,7 +61,7 @@
                         <?php
                         // connected
                         if (isset($_SESSION['isLogged'])) {
-                            echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'welcome'\"><a href=\"\"  ng-click=\"activate(\$event)\"> Welcome, ".$_SESSION['username']."</a></li>";
+                            echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'welcome'\"><a href=\"\"  ng-click=\"activate(\$event)\"> Welcome, " . $_SESSION['username'] . "</a></li>";
                             echo "<li ng-class=\"{'active':selectedTab === 'Profile'}\" ng-click=\"selectedTab = 'Profile'\" ><a href=\"index.php?action=profile\" ng-click=\"activate(\$event)\" > Profile </a></li>";
                             echo "<li ng-class=\"{'active':selectedTab === 'Logout'}\" ng-click=\"selectedTab = 'Logout'\"><a href=\"index.php?action=logout\"  ng-click=\"activate(\$event)\"> Logout</a></li>";
                         }
@@ -122,7 +118,7 @@
                                 session_destroy();
                                 echo "<script> window.location.href='index.php?action=home'; </script>";
                                 break;
-                     
+
                             default:
                                 include "./views/home.php";
                         }
@@ -140,7 +136,9 @@
 
         <div class="fb-like like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>
-        <span id="resolution">Recommended Resolution 1024x768</span>     
+        <span id="resolution">Recommended Resolution 1024x768</span>    
+        <a href="sqlData.php">SQL Data Report </a>
     </body>
 </html>
 <?php db_close(); ?>
+

@@ -1,5 +1,7 @@
 <?php
 
+
+
 // handle uploadFile
 if (isset($_POST['submit'])) {
     $err = false;
@@ -74,7 +76,7 @@ if (isset($_POST['submit'])) {
         return;
     }
     $lecturer = preg_replace('/[^a-zA-Z0-9\s]/', '', $_POST['lecturer']);
-    if (!empty($_FILES['fileToUpload']['name'])) {
+    if (isset($_FILES['fileToUpload']['name'])) {
         $filename=$_FILES["fileToUpload"]["name"];
         $allowed = array('pdf', 'doc', 'docx', 'pptx', 'ppt');
         $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));

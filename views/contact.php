@@ -18,16 +18,18 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-3">Color your message  </div>
+            <div class="col-md-3">Color your message   </div>
             <div class="col-md-5"><input type="color" ng-model="color" name="favcolor" ng-change="changeColor()"> &nbsp;*red means you are mad ;)</div>
             <div class="col-md-4"></div>
         </div>
         <br>
         <div class="row">
-            <div class="col-md-3">Anddd.. your message goes here:</div>
+            <div class="col-md-3">Anddd.. your message goes here: <br>(min=1;max=255 characters)</div>
             <div class="col-md-5"><textarea name="message" style="color:{{color}}" ng-model="message" class="form-control input-lg" cols="80" rows="10" required placeholder="Happy? Sad? We want to hear!"></textarea></div>
             <div class="col-md-4"></div>
         </div>
+      
+
 
         <br>
 

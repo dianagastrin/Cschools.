@@ -22,16 +22,16 @@
             $err=true;
             return;
         }
-        if($err=false){
+        if($err==false){
         $insertSql = "INSERT INTO contact (Name, Email, Message) "
             . "VALUES ('$name', '$email', '$message')";
 
         if(!db_query($insertSql)){
-            pop_error("error sending your message");
+            pop_error("error sending your message-");
         }
         }
         else{
-            echo "Your message was sent successfully!";
+            pop_error("error sending your message");
         }
     }
 ?>

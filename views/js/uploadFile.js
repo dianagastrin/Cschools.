@@ -7,10 +7,15 @@ angular.module('cschools.uploadFile',[])
  
  var courses = [
     { id: 0, name: "Introduction to computer science"},
-    { id: 3, name: "Algebra 1"},
-    { id: 9, name: "Algebra 2"},
-    { id: 12, name: "Calculus 1"},
-    { id: 14, name: "Calculus 2"}
+    { id: 1, name: "Algebra 1"},
+    { id: 2, name: "Algebra 2"},
+    { id: 3, name: "Calculus 1"},
+    { id: 4, name: "Calculus 2"},
+    { id: 5 ,name: "Data Structurs"},
+    { id: 6, name: "Automata And Formal Language"},
+    { id: 7, name: "Compiler"},
+    { id: 8, name: "Priniciples Of Programming Languages"},
+    { id:9, name: "Web"},
   ];
 
   $scope.courses = courses;
